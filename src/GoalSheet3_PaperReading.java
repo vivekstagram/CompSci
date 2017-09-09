@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.io.File;
 
 public class GoalSheet3_PaperReading {
 
@@ -10,10 +11,6 @@ public class GoalSheet3_PaperReading {
 			
 			int count = 0;
 			
-			
-			
-			
-			//Comment
 			
 			
 			while (sc.hasNext())
