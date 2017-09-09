@@ -10,6 +10,12 @@ public class GoalSheet3_PaperReading {
 			
 			int count = 0;
 			
+			
+			
+			
+			
+			
+			
 			while (sc.hasNext())
 			{
 				String word = sc.next();
