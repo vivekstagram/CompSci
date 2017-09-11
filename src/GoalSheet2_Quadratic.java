@@ -12,6 +12,7 @@ public class GoalSheet2_Quadratic {
 		
 		boolean isAZero = true;
 		
+		//The first coefficient of the equation, put in a loop since it can not be 0, or else you would have a linear equation.
 		double a;
 		
 		do
