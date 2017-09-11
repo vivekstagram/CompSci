@@ -1,3 +1,7 @@
+//Vivek Patel
+//Find the roots of a polynomial
+//Goal Sheet 2 - Polynomials
+
 import java.util.Scanner;
 
 public class GoalSheet2_Quadratic {
@@ -6,8 +10,21 @@ public class GoalSheet2_Quadratic {
 	{
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Input A: ");
-		double a = sc.nextDouble();
+		boolean isAZero = true;
+		
+		double a;
+		
+		do
+		{
+			System.out.print("Input A: ");
+			a = sc.nextDouble();
+			
+			if (a != 0.0)
+			{
+				isAZero = false;
+			}
+		}
+		while (isAZero == true);
 		
 		System.out.println();
 		

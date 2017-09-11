@@ -1,5 +1,9 @@
-import java.util.Scanner;
+//Vivek Patel
+//Have a user input the number of fibonacci numbers they want, and print that many
+//Goal Sheet 2 - Fibonacci Numbers
 
+
+import java.util.Scanner;
 
 public class GoalSheet2_Fibonacci {
 

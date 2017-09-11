@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class GoalSheet4_Hangman {
 
 	
-	private static String[] _wordBank = {"terminator", "banana", "computer", "cow", "rain", "water" };
+	private static String[] _wordBank = {"miyoshi", "memes", "advanced", "placement", "computer", "science" };
 	
 	
 	private static String _word = _wordBank[(int) (Math.random() * _wordBank.length)];
