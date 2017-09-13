@@ -41,7 +41,7 @@ public class GoalSheet4_Hangman {
 			
 			String guess = sc.next();
 			
-			if (guesses.contains(guess))
+			if (guesses.contains(guess.toCharArray()[0]))
 			{
 				System.out.println("You already guessed that letter. TRY AGAIN LOL!!!!");
 				continue;
