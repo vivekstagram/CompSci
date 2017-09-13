@@ -1,3 +1,7 @@
+//Vivek Patel
+//Goal Sheet 3 - Replicate String
+
+
 import java.util.Scanner;
 
 

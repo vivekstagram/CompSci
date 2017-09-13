@@ -1,3 +1,7 @@
+//Vivek Patel
+//Goal Sheet 4 - Hangman
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GoalSheet4_Hangman {
@@ -15,16 +19,36 @@ public class GoalSheet4_Hangman {
 	private static int count = 0;
 
 	
+	private static ArrayList<Character> guesses = new ArrayList<Character>();
 	
-	public static void main(String[] args) 
+	
+	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-
+		
 		while (count < 7 && asterisk.contains("*")) 
-		{	
+		{
+			System.out.print("Guesses so far: [");
+			for (int i = 0; i < guesses.size(); i++)
+			{
+				System.out.print(guesses.get(i) + ", ");
+			}
+			System.out.println("]");
+			
+			
 			System.out.println("Guess any letter in the word");
 			System.out.println(asterisk);
+			
 			String guess = sc.next();
+			
+			if (guesses.contains(guess))
+			{
+				System.out.println("You already guessed that letter. TRY AGAIN LOL!!!!");
+				continue;
+			}
+			
+			guesses.add(new Character(guess.toCharArray()[0]));
+			
 			hang(guess);
 			
 			System.out.println();
@@ -43,7 +67,7 @@ public class GoalSheet4_Hangman {
 			{
 				newasterisk += guess.charAt(0);
 				
-			} 
+			}
 			else if (asterisk.charAt(i) != '*') 
 			{
 				newasterisk += _word.charAt(i);
