@@ -1,3 +1,7 @@
+//Vivek Patel
+//Convert an integer to Roman Numerals
+//Goal Sheet 3 - Roman Numerals
+
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -5,7 +9,7 @@ public class GoalSheet3_RomanNumeral {
 
 	public static TreeMap<Integer, String> romanNumberMap = new TreeMap<Integer, String>();
 	
-	static 
+	public static void main(String[] args)
 	{
 		romanNumberMap.put(1000, "M");
 		romanNumberMap.put(900, "CM");
@@ -20,10 +24,8 @@ public class GoalSheet3_RomanNumeral {
 	    romanNumberMap.put(5, "V");
 	    romanNumberMap.put(4, "IV");
 	    romanNumberMap.put(1, "I");
-	}
-	
-	public static void main(String[] args)
-	{
+		
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("What number do you want in Roman Numerals?: ");
@@ -42,6 +44,12 @@ public class GoalSheet3_RomanNumeral {
 	
 	public final static String toRoman(int number) 
 	{
+		if (number > 3999 || number < 0)
+		{
+			return "OUT OF MEMORY LOL!!!";
+		}
+		
+		
         int l =  romanNumberMap.floorKey(number);
         
         if ( number == l ) 
