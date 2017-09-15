@@ -3,9 +3,6 @@
 //Tell the user how many digits are in the correct place, and how many are correct but in the wrong place.
 //Goal Sheet 4 - Mastermind
 
-
-
-
 import java.math.*;
 import java.util.*;
 
@@ -36,26 +33,26 @@ public class GoalSheet4_Mastermind {
 	
 	
 	public static void main(String[] args)
-	{	
-		int test = 0;
+	{
+		System.out.println("Here is the number: ");
 		
-		for (int k = 0; k < theNumber.toArray().length; k++)
+		
+		for (int i = 0; i < theNumber.size(); i++)
 		{
-			test += (int)(theNumber.get(k).intValue() * Math.pow(10.0, k));
+			System.out.print(theNumber.get(i));
 		}
 		
-		System.out.println("Here is the number: " + test);
+		
+		System.out.print("\n");
+		
 		
 		Scanner console = new Scanner(System.in);
+		
 		
 		System.out.println("Welcome to Mastermind! The number has been generated... Please enter your guess!");
 		
 		
-		
 		console.close();
 	}
-	
-	
-	
 	
 }
