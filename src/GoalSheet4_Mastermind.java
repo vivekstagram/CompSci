@@ -42,17 +42,102 @@ public class GoalSheet4_Mastermind {
 			System.out.print(theNumber.get(i));
 		}
 		
-		
 		System.out.print("\n");
 		
 		
 		Scanner console = new Scanner(System.in);
 		
 		
-		System.out.println("Welcome to Mastermind! The number has been generated... Please enter your guess!");
+		int[] theGuess = new int[4];
 		
+		System.out.println("Welcome to Mastermind! The number has been generated... Please enter the first digit of your guess!");
+		System.out.print(">");
+		
+		theGuess[0] = console.nextInt();
+		
+		
+		System.out.println("Enter the second digit of your guess: ");
+		System.out.print(">");
+		
+		theGuess[1] = console.nextInt();
+		
+		
+		System.out.println("Enter the third digit of your guess: ");
+		System.out.print(">");
+		
+		theGuess[2] = console.nextInt();
+		
+		
+		System.out.println("Enter the fourth digit of your guess: ");
+		System.out.print(">");
+		
+		theGuess[3] = console.nextInt();
+		
+		while (guessEvaluator(theGuess) == false)
+		{
+			System.out.println("Please enter the first digit of your guess: ");
+			System.out.print(">");
+			
+			theGuess[0] = console.nextInt();
+			
+			
+			System.out.println("Enter the second digit of your guess: ");
+			System.out.print(">");
+			
+			theGuess[1] = console.nextInt();
+			
+			
+			System.out.println("Enter the third digit of your guess: ");
+			System.out.print(">");
+			
+			theGuess[2] = console.nextInt();
+			
+			
+			System.out.println("Enter the fourth digit of your guess: ");
+			System.out.print(">");
+			
+			theGuess[3] = console.nextInt();
+		}
+		
+		System.out.println("You win!!!!!!!!");
 		
 		console.close();
 	}
 	
+	
+	
+	public static boolean guessEvaluator(int[] guessDigits)
+	{
+		int digitsInRightPlace = 0, digitsRight = 0;
+		
+		
+		for (int i = 0; i < 4; i++) 
+		{
+			if (guessDigits[i] == theNumber.get(i).intValue()) 
+			{
+				digitsInRightPlace++;
+			}
+			else
+			{
+				for (int j = 0; j < 4; j++)
+			    {
+			    	if (guessDigits[i] == theNumber.get(j).intValue())
+			    	{
+			    		digitsRight++;
+				    	break;
+			    	}
+			    }
+			}
+			
+			if (digitsInRightPlace == 4)
+			{
+				return true;
+			}
+			
+		}
+		
+		System.out.println("\nDigits in the correct place: " + digitsInRightPlace + "\n" + "Digits that are right, but in the wrong place: " + digitsRight + "\n\n\n\n");
+		
+		return false;
+	}	
 }
