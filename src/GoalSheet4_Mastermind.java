@@ -106,26 +106,30 @@ public class GoalSheet4_Mastermind {
 	
 	
 	
+	
 	public static boolean guessEvaluator(int[] guessDigits)
 	{
 		int digitsInRightPlace = 0, digitsRight = 0;
 		
+		boolean hasChecked[] = {false, false, false, false};
 		
 		for (int i = 0; i < 4; i++) 
 		{
-			if (guessDigits[i] == theNumber.get(i).intValue()) 
+			if (!hasChecked[i] && guessDigits[i] == theNumber.get(i).intValue()) 
 			{
 				digitsInRightPlace++;
+				hasChecked[i] = true;
 			}
 			else
 			{
 				for (int j = 0; j < 4; j++)
 			    {
-			    	if (guessDigits[i] == theNumber.get(j).intValue())
-			    	{
-			    		digitsRight++;
-				    	break;
-			    	}
+			    		if (!hasChecked[j] && guessDigits[i] == theNumber.get(j).intValue())
+			    		{
+			    			digitsRight++;
+			    			hasChecked[j] = true;
+				    		break;
+			    		}
 			    }
 			}
 			
