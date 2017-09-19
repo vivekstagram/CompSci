@@ -105,8 +105,6 @@ public class GoalSheet4_Mastermind {
 	}
 	
 	
-	
-	
 	public static boolean guessEvaluator(int[] guessDigits)
 	{
 		int digitsInRightPlace = 0, digitsRight = 0;
