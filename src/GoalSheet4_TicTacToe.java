@@ -1,3 +1,4 @@
+
 //Vivek Patel
 //Play tic-tac-toe using 2 dimensional arrays
 //Goal Sheet 4 - Tic-Tac-Toe
@@ -20,19 +21,17 @@ public class GoalSheet4_TicTacToe {
 
 			setUp();
 
-			for (player = 1; player <= 2; player++) 
-			{
+			for (player = 1; player <= 2; player++) {
 
-				//Place a marker!
+				// Place a marker!
 				placeMarker(player, grid);
-				
-				printBoard(grid); 
-				
+
+				printBoard(grid);
+
 				// print the current board
 				if (isWin())
 					break;
-				if (gridIsFull()) 
-				{
+				if (gridIsFull()) {
 					player = 0;
 					break;
 				}
@@ -46,8 +45,7 @@ public class GoalSheet4_TicTacToe {
 			YouWin(player);
 
 			// restart or exit?
-			if (!askToRestart()) 
-			{
+			if (!askToRestart()) {
 				System.out.println("thanks for playing!");
 				break;
 			}
@@ -57,15 +55,13 @@ public class GoalSheet4_TicTacToe {
 		input.close();
 	}
 
-	private static void setUp() 
-	{
+	private static void setUp() {
 		resetGrid();
 		resetMoveMemory();
 		instruction();
 	}
 
-	private static void instruction() 
-	{
+	private static void instruction() {
 
 		System.out.println("Welcome to a 2-player tic tac toe game.");
 		System.out.println("How to play: In turn, each player will type in 2 numbers ");
@@ -77,39 +73,26 @@ public class GoalSheet4_TicTacToe {
 		printBoard(grid);
 	}
 
-	
-	//Populate an empty game board
-	private static void resetGrid() 
-	{
-		for (int i = 0; i < 3; i++) 
-		{
-			for (int j = 0; j < 3; j++) 
-			{
+	// Populate an empty game board
+	private static void resetGrid() {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
 				grid[i][j] = '-';
 			}
 		}
 	}
 
-	
-	
-	private static void resetMoveMemory() 
-	{
+	private static void resetMoveMemory() {
 		moveMemory.clear();
 	}
 
-	
-	
-	//Ask for the location of a players move, and put it there
-	private static void placeMarker(int player, char[][] grid) 
-	{
+	// Ask for the location of a players move, and put it there
+	private static void placeMarker(int player, char[][] grid) {
 		char marker = ' ';
 
-		if (player == 1) 
-		{
+		if (player == 1) {
 			marker = 'O';
-		} 
-		else if (player == 2) 
-		{
+		} else if (player == 2) {
 			marker = 'X';
 		}
 
@@ -124,8 +107,7 @@ public class GoalSheet4_TicTacToe {
 	}
 
 	// return an array of an size 2 {row, column}
-	private static int[] getPlayerMove(int player) 
-	{
+	private static int[] getPlayerMove(int player) {
 
 		int[] move = new int[2];
 
@@ -134,74 +116,56 @@ public class GoalSheet4_TicTacToe {
 			System.out.println("Player " + player + " turn. Select your move:");
 			String moveString = input.nextLine();
 
-			if (moveString.equals("grid")) 
-			{
+			if (moveString.equals("grid")) {
 				printBoard(grid);
-			} 
-			else if (isValidInput(moveString)) 
-			{
+			} else if (isValidInput(moveString)) {
 				move = interpretMove(moveString);
 
-				if (!isSpotTaken(move)) 
-				{
+				if (!isSpotTaken(move)) {
 					break;
 				}
 
-			} 
-			else 
-			{
+			} else {
 				System.out.println("invalid move");
 			}
 		}
 		return move;
 	}
 
-	private static void updateMoveMemory(int row, int column) 
-	{
+	private static void updateMoveMemory(int row, int column) {
 		int[] myArray = new int[2];
 		myArray[0] = row;
 		myArray[1] = column;
 		moveMemory.add(myArray);
 	}
 
-	
-	
-	private static boolean isValidInput(String input) 
-	{
+	private static boolean isValidInput(String input) {
 		// I love this thing
 		StringTokenizer st = new StringTokenizer(input);
 
 		for (int i = 0; i < 2; i++) {
-			try 
-			{
+			try {
 				int myNumber = Integer.parseInt(st.nextToken());
 
-				if (!(myNumber >= 1 && myNumber <= 3))
-				{
+				if (!(myNumber >= 1 && myNumber <= 3)) {
 					return false;
 				}
-			} 
-			catch (NumberFormatException er) 
-			{
+			} catch (NumberFormatException er) {
 				return false;
 			}
 		}
 
 		// We are not playing N-Dimensional tic tac toe here lol
-		if (st.hasMoreTokens())
-		{
+		if (st.hasMoreTokens()) {
 			return false;
 		}
 
 		return true;
 	}
 
-	private static boolean isSpotTaken(int[] move) 
-	{
-		for (int i = 0; i < moveMemory.size(); i++) 
-		{
-			if (moveMemory.get(i)[0] == move[0] && moveMemory.get(i)[1] == move[1])
-			{
+	private static boolean isSpotTaken(int[] move) {
+		for (int i = 0; i < moveMemory.size(); i++) {
+			if (moveMemory.get(i)[0] == move[0] && moveMemory.get(i)[1] == move[1]) {
 				System.out.println("That spot is.... TAKEN ALREADY CHOOSE A DIFFERENT ONE");
 				return true;
 			}
@@ -210,16 +174,14 @@ public class GoalSheet4_TicTacToe {
 		return false;
 	}
 
-	private static int[] interpretMove(String str) 
-	{
+	private static int[] interpretMove(String str) {
 		int[] move = new int[2];
 
 		// Fancy way of splitting up a string
 		StringTokenizer st = new StringTokenizer(str);
 
 		// Capture the dimensions properly
-		for (int i = 0; i < 2; i++) 
-		{
+		for (int i = 0; i < 2; i++) {
 			move[i] = Integer.parseInt(st.nextToken());
 			move[i]--;
 		}
@@ -227,16 +189,13 @@ public class GoalSheet4_TicTacToe {
 		return move;
 	}
 
-	private static void printBoard(char[][] grid) 
-	{
+	private static void printBoard(char[][] grid) {
 
-		for (int i = 0; i < 3; i++) 
-		{
+		for (int i = 0; i < 3; i++) {
 
 			System.out.println("");
 
-			for (int j = 0; j < 3; j++) 
-			{
+			for (int j = 0; j < 3; j++) {
 				System.out.print(grid[i][j] + " ");
 			}
 		}
@@ -245,31 +204,23 @@ public class GoalSheet4_TicTacToe {
 
 	}
 
-	
-	
-	private static boolean isWin() 
-	{
+	private static boolean isWin() {
 		if (checkRow())
 			return true;
-		
+
 		if (checkColumn())
 			return true;
-		
+
 		if (checkDiagonal())
 			return true;
-		
+
 		return false;
 
 	}
 
-	
-	
-	private static boolean checkRow() 
-	{
-		for (int i = 0; i < 3; i++) 
-		{
-			if (grid[i][0] == grid[i][1] && grid[i][0] == grid[i][2]) 
-			{
+	private static boolean checkRow() {
+		for (int i = 0; i < 3; i++) {
+			if (grid[i][0] == grid[i][1] && grid[i][0] == grid[i][2]) {
 				if (grid[i][0] != '-')
 					return true; // because char '-' is empty
 			}
@@ -278,14 +229,9 @@ public class GoalSheet4_TicTacToe {
 		return false;
 	}
 
-	
-	
-	private static boolean checkColumn() 
-	{
-		for (int i = 0; i < 3; i++) 
-		{
-			if (grid[0][i] == grid[1][i] && grid[0][i] == grid[2][i]) 
-			{
+	private static boolean checkColumn() {
+		for (int i = 0; i < 3; i++) {
+			if (grid[0][i] == grid[1][i] && grid[0][i] == grid[2][i]) {
 				if (grid[0][i] != '-')
 					return true;
 			}
@@ -294,12 +240,10 @@ public class GoalSheet4_TicTacToe {
 		return false;
 	}
 
-	
-	
 	private static boolean checkDiagonal() {
 
-		if ((grid[1][1] == grid[0][0] && grid[1][1] == grid[2][2]) || (grid[1][1] == grid[0][2] && grid[1][1] == grid[2][0])) 
-		{
+		if ((grid[1][1] == grid[0][0] && grid[1][1] == grid[2][2])
+				|| (grid[1][1] == grid[0][2] && grid[1][1] == grid[2][0])) {
 			if (grid[1][1] != '-')
 				return true;
 		}
@@ -307,51 +251,34 @@ public class GoalSheet4_TicTacToe {
 		return false;
 	}
 
-	private static boolean gridIsFull() 
-	{
-		if (moveMemory.size() == Math.pow(3, 2)) 
-		{
+	private static boolean gridIsFull() {
+		if (moveMemory.size() == Math.pow(3, 2)) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
-	
-	
-	private static boolean askToRestart() 
-	{
-		while (true) 
-		{
+	private static boolean askToRestart() {
+		while (true) {
 			System.out.println("Type (restart) to play again or type (exit) to quit: ");
 
 			String str = input.nextLine();
 
-			if (str.toLowerCase().equals("restart")) 
-			{
+			if (str.toLowerCase().equals("restart")) {
 				return true;
-			} 
-			else if (str.toLowerCase().equals("exit")) 
-			{
+			} else if (str.toLowerCase().equals("exit")) {
 				return false;
-			} 
-			else 
-			{
+			} else {
 				System.out.println("Invalid Command");
 			}
 		}
 	}
 
-	
-	
-	private static void YouWin(int player) 
-	{
-		if (player != 0) 
-		{
+	private static void YouWin(int player) {
+		if (player != 0) {
 			System.out.println("PLAYER " + player + " WINS!!!!");
-		} 
-		else 
-		{
+		} else {
 			System.out.println("THE MATCH HAS COME TO A DRAW");
 		}
 	}
