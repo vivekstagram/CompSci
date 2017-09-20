@@ -4,22 +4,31 @@
 
 import java.util.*;
 
+
 public class GoalSheet4_TicTacToe {
 
+	//The grid
 	private static char[][] grid = new char[3][3];
 
+	//What player is playing
 	private static int player;
 
+	//INPUT SOME DATA HAHAHAHAHAHAHAHAHA
 	private static Scanner input = new Scanner(System.in);
 
+	//What moves have been made so far
 	private static List<int[]> moveMemory = new ArrayList<int[]>();
 
+	//Woohoo
 	public static void main(String[] args) {
 
+		//Infinite loop because why not
 		while (true) {
 
+			//Set up stuff
 			setUp();
 
+			//This is a really dumb way of alternating the current player
 			for (player = 1; player <= 2; player++) {
 
 				// Place a marker!
@@ -217,6 +226,7 @@ public class GoalSheet4_TicTacToe {
 
 	}
 
+	//Check if there is three in a row on a horizontal line
 	private static boolean checkRow() {
 		for (int i = 0; i < 3; i++) {
 			if (grid[i][0] == grid[i][1] && grid[i][0] == grid[i][2]) {
@@ -228,6 +238,7 @@ public class GoalSheet4_TicTacToe {
 		return false;
 	}
 
+	//Check if there is three in a row on a vertical line
 	private static boolean checkColumn() {
 		for (int i = 0; i < 3; i++) {
 			if (grid[0][i] == grid[1][i] && grid[0][i] == grid[2][i]) {
@@ -250,7 +261,11 @@ public class GoalSheet4_TicTacToe {
 		return false;
 	}
 
+	//Is le grid full???
 	private static boolean gridIsFull() {
+		
+		
+		//Is the grid full?
 		if (moveMemory.size() == Math.pow(3, 2)) {
 			return true;
 		}
@@ -258,7 +273,10 @@ public class GoalSheet4_TicTacToe {
 		return false;
 	}
 
+	//Does the user want to restart
 	private static boolean askToRestart() {
+		
+		
 		while (true) {
 			System.out.println("Type (restart) to play again or type (exit) to quit: ");
 

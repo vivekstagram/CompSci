@@ -50,6 +50,8 @@ public class GoalSheet4_Mastermind {
 		
 		int[] theGuess = new int[4];
 		
+		//Input. Probably could use a tokener for this thing haha.
+		
 		System.out.println("Welcome to Mastermind! The number has been generated... Please enter the first digit of your guess!");
 		System.out.print(">");
 		
@@ -109,28 +111,34 @@ public class GoalSheet4_Mastermind {
 	{
 		int digitsInRightPlace = 0, digitsRight = 0;
 		
+		//To make sure we don't get duplicates and all
 		boolean hasChecked[] = {false, false, false, false};
 		
+		//Loop through the number
 		for (int i = 0; i < 4; i++) 
 		{
-			if (!hasChecked[i] && guessDigits[i] == theNumber.get(i).intValue()) 
+			if (!hasChecked[i] && (guessDigits[i] == theNumber.get(i).intValue())) 
 			{
+				//Right digit. Right place.
 				digitsInRightPlace++;
 				hasChecked[i] = true;
 			}
-			else
+			else //if we didn't get a right digit in the right place for this iteration of the enclosing loop
 			{
 				for (int j = 0; j < 4; j++)
 			    {
-			    		if (!hasChecked[j] && guessDigits[i] == theNumber.get(j).intValue())
+					//Check for correct numbers in the right place
+			    		if (!hasChecked[j] && (guessDigits[i] == theNumber.get(j).intValue()))
 			    		{
 			    			digitsRight++;
+			    			//Make sure we dont check this again
 			    			hasChecked[j] = true;
 				    		break;
 			    		}
 			    }
 			}
 			
+			//Woohoo we got a winner winner chicken dinner
 			if (digitsInRightPlace == 4)
 			{
 				return true;
@@ -138,6 +146,7 @@ public class GoalSheet4_Mastermind {
 			
 		}
 		
+		//Tell the user how (in)correct they are
 		System.out.println("\nDigits in the correct place: " + digitsInRightPlace + "\n" + "Digits that are right, but in the wrong place: " + digitsRight + "\n\n\n\n");
 		
 		return false;
