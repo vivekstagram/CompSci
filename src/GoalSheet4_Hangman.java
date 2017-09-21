@@ -1,4 +1,5 @@
 //Vivek Patel
+//Issa hangman program
 //Goal Sheet 4 - Hangman
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class GoalSheet4_Hangman {
 
 	
-	private static String[] _wordBank = {"miyoshi", "memes", "advanced", "placement", "computer", "science" };
+	private static String[] _wordBank = {"java", "lose", "advanced", "placement", "computer", "science" };
 	
 	
 	private static String _word = _wordBank[(int) (Math.random() * _wordBank.length)];
@@ -43,7 +44,7 @@ public class GoalSheet4_Hangman {
 			
 			if (guesses.contains(guess.toCharArray()[0]))
 			{
-				System.out.println("You already guessed that letter. TRY AGAIN LOL!!!!");
+				System.out.println("Your guess was invalid. TRY AGAIN LOL!!!!");
 				continue;
 			}
 			
@@ -94,6 +95,7 @@ public class GoalSheet4_Hangman {
 		}
 	}
 
+	//a LOT of ASCII art
 	public static void hangmanImage()
 	{
 		System.out.println("\n\n\n\n\n\n\n\n");

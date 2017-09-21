@@ -1,15 +1,17 @@
-
+//Vivek Patel
+//A class defining a Rectangle
+//Goal Sheet 4 - Circle and Rectangle
 
 public class GoalSheet4_Rectangle implements GoalSheet4_Shape {
 
 	//Instance variables
 	private float _width, _length;
 	
-	//Constructors\
+	//Constructors
 	public GoalSheet4_Rectangle(float width, float length)
 	{
 		_width = width;
-		_length = _length;
+		_length = length;
 	}
 	
 	public GoalSheet4_Rectangle()
@@ -26,7 +28,7 @@ public class GoalSheet4_Rectangle implements GoalSheet4_Shape {
 	
 	public float getPerimeter()
 	{
-		return (float)(2.0 * (_length * _width));
+		return (float)(2.0 * (_length + _width));
 	}
 	
 	//Setter methods

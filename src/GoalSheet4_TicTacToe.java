@@ -24,19 +24,16 @@ public class GoalSheet4_TicTacToe {
 
 		//Infinite loop because why not
 		while (true) {
-
 			//Set up stuff
 			setUp();
 
 			//This is a really dumb way of alternating the current player
 			for (player = 1; player <= 2; player++) {
-
 				// Place a marker!
 				placeMarker(player, grid);
 
-				printBoard(grid);
-
 				// print the current board
+				printBoard(grid);
 				if (isWin())
 					break;
 				if (gridIsFull()) {
@@ -114,7 +111,7 @@ public class GoalSheet4_TicTacToe {
 		updateMoveMemory(row, column);
 	}
 
-	// return an array of an size 2 {row, column}
+	// return an array of size 2 {row, column}
 	private static int[] getPlayerMove(int player) {
 
 		int[] move = new int[2];
@@ -132,7 +129,7 @@ public class GoalSheet4_TicTacToe {
 				if (!isSpotTaken(move)) {
 					break;
 				}
-
+				
 			} else {
 				System.out.println("invalid move");
 			}
@@ -158,6 +155,7 @@ public class GoalSheet4_TicTacToe {
 				if (!(myNumber >= 1 && myNumber <= 3)) {
 					return false;
 				}
+				//Catch this exception in the event that the entry isnt in the right format
 			} catch (NumberFormatException er) {
 				return false;
 			}
@@ -223,7 +221,6 @@ public class GoalSheet4_TicTacToe {
 			return true;
 
 		return false;
-
 	}
 
 	//Check if there is three in a row on a horizontal line
@@ -234,7 +231,6 @@ public class GoalSheet4_TicTacToe {
 					return true; // because char '-' is empty
 			}
 		}
-
 		return false;
 	}
 
@@ -246,7 +242,6 @@ public class GoalSheet4_TicTacToe {
 					return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -257,26 +252,20 @@ public class GoalSheet4_TicTacToe {
 			if (grid[1][1] != '-')
 				return true;
 		}
-
 		return false;
 	}
 
 	//Is le grid full???
 	private static boolean gridIsFull() {
-		
-		
 		//Is the grid full?
 		if (moveMemory.size() == Math.pow(3, 2)) {
 			return true;
 		}
-
 		return false;
 	}
 
 	//Does the user want to restart
 	private static boolean askToRestart() {
-		
-		
 		while (true) {
 			System.out.println("Type (restart) to play again or type (exit) to quit: ");
 
