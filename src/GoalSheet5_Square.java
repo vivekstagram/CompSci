@@ -2,7 +2,7 @@
 //A class defining a Square which inherits from a rectangle
 //Goal Sheet 5 - Circle, Rectangle, and Square
 
-public class GoalSheet5_Square extends GoalSheet4_Rectangle implements GoalSheet4_Shape {
+public class GoalSheet5_Square extends GoalSheet4_Rectangle {
 	
 	//Constructors
 	public GoalSheet5_Square()
