@@ -22,7 +22,13 @@ public class GoalSheet4_Circle implements GoalSheet4_Shape{
 		_radius = radius;
 	}
 	
-	//Getter methods;
+	//Setter methods
+	public void setRadius(float radius)
+	{
+		_radius = radius;
+	}
+	
+	//Getter methods
 	public float getArea() {
 		
 		//Pi * r^2
