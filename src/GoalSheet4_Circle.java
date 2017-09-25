@@ -5,7 +5,7 @@
 import java.math.*;
 
 
-public class GoalSheet4_Circle implements GoalSheet4_Shape{
+public class GoalSheet4_Circle implements GoalSheet4_Shape {
 
 	//instance variables
 	float _radius;
