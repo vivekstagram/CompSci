@@ -12,8 +12,22 @@ public class GoalSheet5_3DShapeTester {
 		System.out.println("Surface area of rectangular prism: " + _rp.getSurfaceArea());
 		System.out.println("Volume of rectangular prism: " + _rp.getVolume());
 		
+		((GoalSheet5_RectangularPrism) _rp).setLength(6.0f);
+		((GoalSheet5_RectangularPrism) _rp).setWidth(5.0f);
+		((GoalSheet5_RectangularPrism) _rp).setHeight(4.0f);
+		
+		System.out.println("Surface area of rectangular prism: " + _rp.getSurfaceArea());
+		System.out.println("Volume of rectangular prism: " + _rp.getVolume());
+		
+		
+		
 		
 		GoalSheet5_3DShape _c = new GoalSheet5_Cube(4.0f);
+		
+		System.out.println("Surface area of cube: " + _c.getSurfaceArea());
+		System.out.println("Volume of cube: " + _c.getVolume());
+		
+		((GoalSheet5_Cube)_c).setSideLength(3.0f);
 		
 		System.out.println("Surface area of cube: " + _c.getSurfaceArea());
 		System.out.println("Volume of cube: " + _c.getVolume());
