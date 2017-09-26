@@ -2,6 +2,10 @@
 //Find the roots of a polynomial
 //Goal Sheet 2 - Polynomials
 
+
+//REDO THIS PROGRAM TO SUPPORT THE FIRST COEFFICIENT BEING ZERO
+
+
 import java.util.Scanner;
 
 public class GoalSheet2_Quadratic {
@@ -13,21 +17,8 @@ public class GoalSheet2_Quadratic {
 		boolean isAZero = true;
 		
 		//The first coefficient of the equation, put in a loop since it can not be 0, or else you would have a linear equation.
-		double a;
-		
-		do
-		{
-			System.out.print("Input A: ");
-			a = sc.nextDouble();
-			
-			if (a != 0.0)
-			{
-				isAZero = false;
-			}
-		}
-		while (isAZero == true);
-		
-		System.out.println();
+		System.out.print("Input A: ");
+		double a = sc.nextDouble();
 		
 		System.out.print("Input B: ");
 		double b = sc.nextDouble();

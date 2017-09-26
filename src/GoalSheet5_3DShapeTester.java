@@ -31,5 +31,18 @@ public class GoalSheet5_3DShapeTester {
 		
 		System.out.println("Surface area of cube: " + _c.getSurfaceArea());
 		System.out.println("Volume of cube: " + _c.getVolume());
+		
+		
+		
+		
+		GoalSheet5_3DShape _s = new GoalSheet5_Sphere(4.0f);
+		
+		System.out.println("Surface area of sphere: " + _s.getSurfaceArea());
+		System.out.println("Volume of sphere: " + _s.getVolume());
+		
+		((GoalSheet5_Sphere)_s).setRadius(3.0f);
+		
+		System.out.println("Surface area of sphere: " + _s.getSurfaceArea());
+		System.out.println("Volume of sphere: " + _s.getVolume());
 	}
 }
