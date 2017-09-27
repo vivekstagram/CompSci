@@ -19,21 +19,27 @@ public class GoalSheet5_Cube extends GoalSheet5_RectangularPrism implements Goal
 	//Setter methods
 	public void setSideLength(float s) 
 	{
-		super._length = s;
-		super._height = s;
-		super._width = s;
+		super.setLength(s);
+		super.setHeight(s);
+		super.setWidth(s);
 	}
 
 	//Getter methods
 	@Override
 	public float getSurfaceArea()
 	{
-		return (float) ((2.0 * _length * _height) + (2.0 * _width * _height) + (2.0 * _length * _width));
+		return (float) ((2.0 * super.getLength() * super.getHeight()) + (2.0 * super.getWidth() * super.getHeight()) + (2.0 * super.getLength() * super.getWidth()));
 	}
 
 	@Override
 	public float getVolume()
 	{
-		return (float) (_width * _length * _height);
+		return (float) (super.getLength() * super.getHeight() * super.getWidth());
+	}
+	
+	public float getSideLength()
+	{
+		//all three lengths are the same, return any of them
+		return super.getLength();
 	}
 }

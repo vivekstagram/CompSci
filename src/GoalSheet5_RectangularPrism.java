@@ -4,7 +4,7 @@
 public class GoalSheet5_RectangularPrism implements GoalSheet5_3DShape {
 
 	//Instance variables
-	float _length, _width, _height;
+	private float _length, _width, _height;
 	
 	//Constructors
 	public GoalSheet5_RectangularPrism()
@@ -24,7 +24,7 @@ public class GoalSheet5_RectangularPrism implements GoalSheet5_3DShape {
 	{
 		_height = h;
 	}
-	
+
 	public void setWidth(float w)
 	{
 		_width = w;
@@ -47,5 +47,19 @@ public class GoalSheet5_RectangularPrism implements GoalSheet5_3DShape {
 	{
 		return (float)(_width * _length * _height);
 	}
-
+	
+	public float getLength()
+	{
+		return _length;
+	}
+	
+	public float getWidth()
+	{
+		return _width;
+	}
+	
+	public float getHeight()
+	{
+		return _height;
+	}
 }

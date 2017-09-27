@@ -31,6 +31,16 @@ public class GoalSheet4_Rectangle implements GoalSheet4_Shape {
 		return (float)(2.0 * (_length + _width));
 	}
 	
+	public float getLength()
+	{
+		return _length;
+	}
+	
+	public float getWidth()
+	{
+		return _width;
+	}
+	
 	//Setter methods
 	public void setLength(float length)
 	{
