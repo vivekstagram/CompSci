@@ -36,23 +36,28 @@ public class GoalSheet3_RomanNumeral {
 		
 		finalNum = toRoman(romanNumber);
 		
-		System.out.println(romanNumber + " " + "in Roman Numerals is: " + finalNum.toString());
+		System.out.println(romanNumber + " " + "in Roman Numerals is: " + finalNum);
         
 		sc.close();
 	}
 	
 	
-	public final static String toRoman(int number) 
+	public static String toRoman(int number) 
 	{
 		if (number > 3999 || number < 0)
 		{
 			return "OUT OF MEMORY LOL!!!";
 		}
 		
+		if (number == 0)
+		{
+			return "";
+		}
+		
 		
         int l =  romanNumberMap.floorKey(number);
         
-        if ( number == l ) 
+        if (number == l) 
         {
             return romanNumberMap.get(number);
         }

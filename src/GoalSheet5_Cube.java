@@ -19,9 +19,9 @@ public class GoalSheet5_Cube extends GoalSheet5_RectangularPrism {
 	//Setter methods
 	public void setSideLength(float s) 
 	{
-		super.setLength(s);
-		super.setHeight(s);
-		super.setWidth(s);
+		setLength(s);
+		setHeight(s);
+		setWidth(s);
 	}
 	
 	public float getSideLength()

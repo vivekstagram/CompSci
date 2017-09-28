@@ -14,20 +14,19 @@ public class GoalSheet5_Square extends GoalSheet4_Rectangle {
 	public GoalSheet5_Square(float sideLength)
 	{
 		//Allows the use of getArea and getPerimeter as this sets the necessary values in the superclass
-		super.setLength(sideLength);
-		super.setWidth(sideLength);
+		setLength(sideLength);
+		setWidth(sideLength);
 	}
 	
 	//Setter methods
 	public void setSideLength(float sideLength)
 	{
-		super.setLength(sideLength);
-		super.setWidth(sideLength);
+		setLength(sideLength);
+		setWidth(sideLength);
 	}
 	
 	public float getSideLength()
 	{
-		return super.getLength();
+		return getLength();
 	}
-	
 }
