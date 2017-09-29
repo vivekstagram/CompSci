@@ -161,11 +161,11 @@ public class GoalSheet4_Mastermind {
 			for (int k = 0; k < 4; k++)
 		    {
 				//Check for correct numbers in the right place
-		    		if (!hasChecked[j] && (guessDigits[i] == theNumber.get(j).intValue()))
+		    		if (!hasChecked[k] && (guessDigits[k] == theNumber.get(j).intValue()))
 		    		{
 		    			digitsRight++;
 		    			//Make sure we dont check this again
-		    			hasChecked[j] = true;
+		    			hasChecked[k] = true;
 			    		break;
 		    		}
 		    }
