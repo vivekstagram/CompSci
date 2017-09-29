@@ -115,7 +115,7 @@ public class GoalSheet4_Mastermind {
 		boolean hasChecked[] = {false, false, false, false};
 		
 		//Loop through the number
-		for (int i = 0; i < 4; i++) 
+		/*for (int i = 0; i < 4; i++) 
 		{
 			if (!hasChecked[i] && (guessDigits[i] == theNumber.get(i).intValue())) 
 			{
@@ -144,7 +144,33 @@ public class GoalSheet4_Mastermind {
 				return true;
 			}
 			
+		}*/
+		
+		for (int i = 0; i < 4; i++) 
+		{
+			if (!hasChecked[i] && (guessDigits[i] == theNumber.get(i).intValue())) 
+			{
+				//Right digit. Right place.
+				digitsInRightPlace++;
+				hasChecked[i] = true;
+			}
 		}
+		
+		for (int j = 0; j < 4; j++)
+		{
+			for (int k = 0; k < 4; k++)
+		    {
+				//Check for correct numbers in the right place
+		    		if (!hasChecked[j] && (guessDigits[i] == theNumber.get(j).intValue()))
+		    		{
+		    			digitsRight++;
+		    			//Make sure we dont check this again
+		    			hasChecked[j] = true;
+			    		break;
+		    		}
+		    }
+		}
+		
 		
 		//Tell the user how (in)correct they are
 		System.out.println("\nDigits in the correct place: " + digitsInRightPlace + "\n" + "Digits that are right, but in the wrong place: " + digitsRight + "\n\n\n\n");
