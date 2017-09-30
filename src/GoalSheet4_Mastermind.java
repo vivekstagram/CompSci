@@ -112,47 +112,18 @@ public class GoalSheet4_Mastermind {
 		int digitsInRightPlace = 0, digitsRight = 0;
 		
 		//To make sure we don't get duplicates and all
-		boolean hasChecked[] = {false, false, false, false};
+		boolean numbersConfirmed[] = {false, false, false, false};
+		boolean duplicatePreventer[] = {false, false, false, false};
 		
-		//Loop through the number
-		/*for (int i = 0; i < 4; i++) 
-		{
-			if (!hasChecked[i] && (guessDigits[i] == theNumber.get(i).intValue())) 
-			{
-				//Right digit. Right place.
-				digitsInRightPlace++;
-				hasChecked[i] = true;
-			}
-			else //if we didn't get a right digit in the right place for this iteration of the enclosing loop
-			{
-				for (int j = 0; j < 4; j++)
-			    {
-					//Check for correct numbers in the right place
-			    		if (!hasChecked[j] && (guessDigits[i] == theNumber.get(j).intValue()))
-			    		{
-			    			digitsRight++;
-			    			//Make sure we dont check this again
-			    			hasChecked[j] = true;
-				    		break;
-			    		}
-			    }
-			}
-			
-			//Woohoo we got a winner winner chicken dinner
-			if (digitsInRightPlace == 4)
-			{
-				return true;
-			}
-			
-		}*/
 		
 		for (int i = 0; i < 4; i++) 
 		{
-			if (!hasChecked[i] && (guessDigits[i] == theNumber.get(i).intValue())) 
+			if (!numbersConfirmed[i] && (theNumber.get(i).intValue() == guessDigits[i])) 
 			{
 				//Right digit. Right place.
 				digitsInRightPlace++;
-				hasChecked[i] = true;
+				numbersConfirmed[i] = true;
+				duplicatePreventer[i] = true;
 			}
 		}
 		
@@ -161,11 +132,11 @@ public class GoalSheet4_Mastermind {
 			for (int k = 0; k < 4; k++)
 		    {
 				//Check for correct numbers in the right place
-		    		if (!hasChecked[k] && (guessDigits[k] == theNumber.get(j).intValue()))
+		    		if ((!duplicatePreventer[k] && !numbersConfirmed[j]) && (guessDigits[k] == theNumber.get(j).intValue()))
 		    		{
 		    			digitsRight++;
 		    			//Make sure we dont check this again
-		    			hasChecked[k] = true;
+		    			duplicatePreventer[k] = true;
 			    		break;
 		    		}
 		    }
