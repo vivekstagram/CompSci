@@ -66,5 +66,14 @@ public class GoalSheet5_3DShapeTester {
 		
 		System.out.println("Surface area of circular cone: " + _co.getSurfaceArea());
 		System.out.println("Volume of circular cone: " + _co.getVolume());
+		
+		
+		
+		GoalSheet5_3DShape _tp = new GoalSheet5_TriangularPrism(2.0f, 2.0f, 2.0f, 4.0f);
+		
+		System.out.println("\n\nSurface area of triangular prism: " + _tp.getSurfaceArea());
+		System.out.println("Volume of triangular prism: " + _tp.getVolume());
+		
+		System.out.println("Side length b of the triangular prism: " + ((GoalSheet5_TriangularPrism)_tp).getSideLength(1));
 	}
 }
