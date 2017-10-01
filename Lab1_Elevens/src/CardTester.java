@@ -13,8 +13,9 @@ public class CardTester {
 		Card _2 = new Card("B", "Queen", 12);
 		Card _3 = new Card("C", "Jack", 11);
 		
-		
-		
+		System.out.println(_1.rank() + " " + _1.suit() + " " + _1.pointValue());
+		System.out.println(_2.rank() + " " + _2.suit() + " " + _2.pointValue());
+		System.out.println(_3.rank() + " " + _3.suit() + " " + _3.pointValue());
 		
 	}
 }
