@@ -16,10 +16,17 @@ public class GoalSheet4_Mastermind {
 		Random rand = new Random(System.nanoTime());
 		
 		//Make the number
-		for (int i = 0; i < 4; i++)
-		{
-			theNumber.add(i, rand.nextInt(10));
-		}
+		//for (int i = 0; i < 4; i++)
+		//{
+			//theNumber.add(i, rand.nextInt(10));
+		//}
+		
+		
+		theNumber.add(0, 6);
+		theNumber.add(1, 6);
+		theNumber.add(2, 1);
+		theNumber.add(3, 4);
+		
 	}
 	
 	//The guess that the user inputs
@@ -145,6 +152,12 @@ public class GoalSheet4_Mastermind {
 		
 		//Tell the user how (in)correct they are
 		System.out.println("\nDigits in the correct place: " + digitsInRightPlace + "\n" + "Digits that are right, but in the wrong place: " + digitsRight + "\n\n\n\n");
+		
+		if (digitsInRightPlace == 4)
+		{
+			return true;
+		}
+		
 		
 		return false;
 	}	
