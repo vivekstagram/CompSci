@@ -13,12 +13,14 @@ public class GoalSheet5_Cube extends GoalSheet5_RectangularPrism {
 
 	public GoalSheet5_Cube(float s) 
 	{
+		//All the side lengths are the same
 		super(s, s, s);
 	}
 
 	//Setter methods
 	public void setSideLength(float s) 
 	{
+		//All side lengths are the same
 		setLength(s);
 		setHeight(s);
 		setWidth(s);
@@ -26,7 +28,7 @@ public class GoalSheet5_Cube extends GoalSheet5_RectangularPrism {
 	
 	public float getSideLength()
 	{
-		//all three lengths are the same, return any of them
+		//All three lengths are the same, return any of them
 		return super.getLength();
 	}
 }

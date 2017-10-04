@@ -21,12 +21,14 @@ public class GoalSheet5_CircularCone extends GoalSheet5_Cylinder {
 	@Override
 	public float getVolume()
 	{
+		//Return one third the volume of a cylinder with the same base
 		return (float)(1.0 / 3.0 * super.getVolume());
 	}
 	
 	@Override
 	public float getSurfaceArea()
 	{
+		//Store some stuff to not have too much spaghetti in the last line
 		float r = getBaseRadius();
 		float h = getHeight();
 		

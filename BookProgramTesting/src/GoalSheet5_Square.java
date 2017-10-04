@@ -25,6 +25,7 @@ public class GoalSheet5_Square extends GoalSheet4_Rectangle {
 		setWidth(sideLength);
 	}
 	
+	//Return the length
 	public float getSideLength()
 	{
 		return getLength();

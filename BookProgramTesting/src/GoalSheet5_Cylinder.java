@@ -16,6 +16,7 @@ public class GoalSheet5_Cylinder implements GoalSheet5_3DShape {
 	
 	public GoalSheet5_Cylinder(float baseRadius, float height)
 	{
+		//Set the instance variables
 		_baseRadius = baseRadius;
 		_height = height;
 	}

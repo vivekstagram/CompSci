@@ -14,6 +14,7 @@ public class GoalSheet5_RectangularPrism implements GoalSheet5_3DShape {
 	
 	public GoalSheet5_RectangularPrism(float l, float w, float h)
 	{
+		//Set the lengths of the prism
 		_length = l;
 		_width = w;
 		_height  = h;
