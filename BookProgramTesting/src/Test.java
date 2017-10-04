@@ -3,19 +3,24 @@ public class Test {
 
 	public static void main(String[] args)
 	{
-		mystery(1234);
-	}
-	
-	public static void mystery(int x)
-	{
-		System.out.print(x % 10);
-		
-		if (x / 10 != 0)
+		int [] n = {2, 10, 100, 1000, 10000}; //number of steps in each summation
+		int a = 0;
+		int b = 2;
+		double H = 0;
+		double x = 0;
+
+		for (int j = 0; j < 4; j++)
 		{
-			mystery(x / 10);
+		    double dX = (double)(b - a) / (double)n[j];
+		    
+		    for (int i = 1; i < n[j]; i++)
+		    {
+		        x = a + ((double)i - 1.0) * dX;
+		        H += (x - Math.pow(x, 2.0));               
+		    }
+		    
+		    double solution = H * dX;
+		    System.out.println(solution);
 		}
-		
-		System.out.print(x % 10);
 	}
-	
 }
