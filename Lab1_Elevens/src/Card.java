@@ -87,6 +87,6 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		return String.format(rank + " of " + suit + "(point value = " + pointValue + ")");
+		return String.format(rank + " of " + suit + " (point value = " + pointValue + ")");
 	}
 }
