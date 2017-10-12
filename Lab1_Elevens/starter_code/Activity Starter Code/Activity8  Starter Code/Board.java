@@ -41,6 +41,19 @@ public abstract class Board {
 		dealMyCards();
 	}
 
+	public Board()
+	{
+			cards = new Card[BOARD_SIZE];
+			deck = new Deck(RANKS, SUITS, POINT_VALUES);
+			if (I_AM_DEBUGGING) 
+			{
+				System.out.println(deck);
+				System.out.println("----------");
+			}
+			dealMyCards();
+	}
+	
+	
 	/**
 	 * Start a new game by shuffling the deck and
 	 * dealing some cards to this board.
