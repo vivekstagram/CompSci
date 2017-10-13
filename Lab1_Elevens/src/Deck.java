@@ -31,11 +31,11 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		cards = new ArrayList<Card>();
-		
-		for (int i = 0; i < ranks.length; i++)
-			for (int j = 0; j < suits.length; j++)
-					cards.add(new Card(ranks[i], suits[j], values[i]));
-		
+		for (int j = 0; j < ranks.length; j++) {
+			for (String suitString : suits) {
+				cards.add(new Card(ranks[j], suitString, values[j]));
+			}
+		}
 		size = cards.size();
 		shuffle();
 	}
@@ -46,11 +46,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		
-		if (cards.size() == 0)
-			return true;
-		
-		return false;
+		return size == 0;
 	}
 
 	/**
@@ -58,7 +54,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		return cards.size();
+		return size;
 	}
 
 	/**
@@ -66,13 +62,15 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		for( int k = size - 1; k >= 0; k-- )
-		{
-            int r = (int)(Math.random() * k);
-            Card tmp = cards.get(r);
-            cards.set(r, cards.get(k));
-            cards.set(k, tmp);
-        }
+		for (int k = cards.size() - 1; k > 0; k--) {
+			int howMany = k + 1;
+			int start = 0;
+			int randPos = (int) (Math.random() * howMany) + start;
+			Card temp = cards.get(k);
+			cards.set(k, cards.get(randPos));
+			cards.set(randPos, temp);
+		}
+		size = cards.size();
 	}
 
 	/**
@@ -81,14 +79,11 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		
 		if (isEmpty()) {
 			return null;
 		}
-		
 		size--;
 		Card c = cards.get(size);
-		
 		return c;
 	}
 
@@ -100,25 +95,33 @@ public class Deck {
 	public String toString() {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
-		for (int k = size - 1; k >= 0; k--) {
+		for (int k = size - 1; k >= 0; k--) 
+		{
 			rtn = rtn + cards.get(k);
-			if (k != 0) {
+			
+			if (k != 0) 
+			{
 				rtn = rtn + ", ";
 			}
-			if ((size - k) % 2 == 0) {
-				// Add a newline if we have printed two cards on the same line.
+			
+			if ((size - k) % 2 == 0) 
+			{
 				rtn = rtn + "\n";
 			}
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k).toString();
-			if (k != size) {
+		for (int k = cards.size() - 1; k >= size; k--) 
+		{
+			rtn = rtn + cards.get(k);
+			
+			if (k != size) 
+			{
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
-				// Add a newline if we have printed two cards on the same line.
+			
+			if ((k - cards.size()) % 2 == 0)
+			{
 				rtn = rtn + "\n";
 			}
 		}

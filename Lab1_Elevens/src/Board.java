@@ -40,11 +40,6 @@ public abstract class Board {
 		}
 		dealMyCards();
 	}
-
-	public Board()
-	{
-		
-	}
 	
 	
 	/**
