@@ -17,7 +17,7 @@ public class GoalSheet6_WindowClass
 	{
 		
 	}
-	
+
 	public void setPointX(int _x)
 	{
 		p.setX(_x);
@@ -34,9 +34,30 @@ public class GoalSheet6_WindowClass
 		return p;
 	}
 	
-	public void setPoint()
+	public void setPoint(GoalSheet6_Point _p)
 	{
-		
+		p = _p;
+	}
+
+	public GoalSheet6_Point getPosition() 
+	{
+		return p;
+	}
+	
+	public int getWidth()
+	{
+		return w;
+	}
+	
+	public int getLength()
+	{
+		return l;
+	}
+	
+	public void moveToCursor(GoalSheet6_Point cursor)
+	{
+		p.setX(cursor.getX());
+		p.setY(cursor.getY());
 	}
 	
 }

@@ -16,7 +16,8 @@ public class GoalSheet4_Rectangle implements GoalSheet4_Shape {
 	
 	public GoalSheet4_Rectangle()
 	{
-		//Sets everything to zero since it is the default
+		_width = 0f;
+		_length = 0f;
 	}
 	
 	

@@ -9,13 +9,13 @@ public class GoalSheet5_Square extends GoalSheet4_Rectangle {
 	{
 		//Default constructor sets all of the instance variables to zero
 		//Haha there are none lololololol
+		super(0f, 0f);
 	}
 	
 	public GoalSheet5_Square(float sideLength)
 	{
 		//Allows the use of getArea and getPerimeter as this sets the necessary values in the superclass
-		setLength(sideLength);
-		setWidth(sideLength);
+		super(sideLength, sideLength);
 	}
 	
 	//Setter methods
