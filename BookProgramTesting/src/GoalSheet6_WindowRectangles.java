@@ -61,7 +61,7 @@ public class GoalSheet6_WindowRectangles {
 					{//Check if click is within bounds
 						check.moveToCursor(new GoalSheet6_Point(clickX, clickY));//Pass new corner point
 						theWindows.remove(i);
-						theWindows.add(check);//remove and append
+						theWindows.add(check); //remove and append
 						
 						
 						System.out.println("Success");
