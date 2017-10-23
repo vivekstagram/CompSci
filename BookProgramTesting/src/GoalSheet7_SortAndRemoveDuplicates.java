@@ -16,9 +16,9 @@ public class GoalSheet7_SortAndRemoveDuplicates
 	{
 		List<Integer> list = new ArrayList<Integer>();
 		
-		int[] unsortedA = {7, 4, -9, 4, 15, 8, 27, 7, 11, -5, 32, -9, -9};
+		int[] valuesUnsorted = {7, 4, -9, 4, 15, 8, 27, 7, 11, -5, 32, -9, -9};
 		
-		for (int i : unsortedA)//Add values to list from array
+		for (int i : valuesUnsorted) //Add values to list from array
 		{
 			list.add(i);
 		}
@@ -26,7 +26,7 @@ public class GoalSheet7_SortAndRemoveDuplicates
 		
 		list = sortAndRemoveDuplicates(list);
 		
-		System.out.println("Main List: "); //print out values
+		System.out.println("Original Values Sorted Without Duplicates: "); //print out values
 		
 		for (Integer i : list)
 		{
