@@ -47,6 +47,10 @@ public class GoalSheet7_SortAndRemoveDuplicates
 			sortedWithoutDuplicates.add(i.next());
 		}
 		
+		//The set automatically determines if an element already exists.
+		
+		
+		
 		return Arrays.asList(sortedWithoutDuplicates.toArray(new Integer[0]));
 	}
 	
