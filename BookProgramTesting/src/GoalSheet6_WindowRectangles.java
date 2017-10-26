@@ -1,3 +1,17 @@
+/*
+ * Name: Vivek Patel
+ * Date: 10/26/2017
+ * Purpose: Write a class that models a list of possibly overlapping rectangular two-
+			dimensional window regions, like the windows for the programs open on your
+			computer. The order of the rectangles in the list implies the order in which
+			they would display on the screen (sometimes called the “z-order”), from 0 on
+			the bottom to size()-1 on the top. Each rectangle stores its (x,y) position,
+			width, and height. Your rectangle list class should have a method that takes a
+			Point as a parameter, treats it as though the user clicked that Point on the
+			screen, and moves the topmost rectangle touching that Point to the front of the
+			list.
+ */
+
 import java.util.*;
 
 
@@ -5,87 +19,111 @@ public class GoalSheet6_WindowRectangles {
 
 	public static void main(String[] args)
 	{
-		ArrayList<GoalSheet6_WindowClass> theWindows = new ArrayList<GoalSheet6_WindowClass>();
+		List<GoalSheet6_WindowClass> theWindows = new ArrayList<GoalSheet6_WindowClass>();
 		
-		Scanner console = new Scanner(System.in);
+		Scanner _sc = new Scanner(System.in);
 		
-		int choice = 0;
+		//Keep track of the user's insignificant choice
+		int menuChoice = 0;
 		
 		do
 		{
-			System.out.println("Choose an option:\n\t1: Open a New Window\n\t2: Click on an Existing Window\n\t0: Quit");
+			//A menu to entertain the user
+			System.out.println("Whaddya want:");
+			System.out.println("1: Open another window because there isn't enough already");
+			System.out.println("2: Click to move a window that already exists since you settled on a point you didn't like");
+			System.out.println("3: Move to quittersville");
 		
-			choice = console.nextInt();
+			menuChoice = _sc.nextInt();
 			
-			if (choice == 1)
+			if (menuChoice == 1)
 			{
-				System.out.println("Enter X Position of New Window: ");
-				int newX = console.nextInt();
+				//Ask for the X coordinate of the top left point of the window
+				System.out.println("Enter the X coordinate of the top left of the window: ");
+				int newWindowX = _sc.nextInt();
 				
-				System.out.println("Enter Y Position of New Window: ");
-				int newY = console.nextInt();
+				//Ask for the Y coordinate of the top left point of the window
+				System.out.println("Enter the Y coordinate of the top left of the window: ");
+				int newWindowY = _sc.nextInt();
 				
-				System.out.println("Enter Width of New Window: ");
-				int newWidth = console.nextInt();
+				//Ask for the width of the new window
+				System.out.println("Enter the width of the new window: ");
+				int newWindowWidth = _sc.nextInt();
 				
-				System.out.println("Enter Length of New Window: ");
-				int newLength = console.nextInt();
+				//Ask for the length of the new window
+				System.out.println("Enter the length of the new window: ");
+				int newWindowLength = _sc.nextInt();
 				
-				theWindows.add(new GoalSheet6_WindowClass(new GoalSheet6_Point(newX, newY), newLength, newWidth));//construct window object, push to list
+				//Add a new window of the new specified window to the list
+				theWindows.add(new GoalSheet6_WindowClass(new GoalSheet6_Point(newWindowX, newWindowY), newWindowLength, newWindowWidth)); //construct window object, push to list
 				
 				System.out.println("Done.");
 			}
-			else if (choice == 2)
+			else if (menuChoice == 2)
 			{
 				System.out.println("Enter X Position of Click: ");
-				int clickX = console.nextInt();
+				int clickX = _sc.nextInt();
 				
 				System.out.println("Enter Y Position of Click: ");
-				int clickY = console.nextInt();
+				int clickY = _sc.nextInt();
 				
-				boolean exists = false;
+				boolean windowExists = false;
 				
 				for (int i = theWindows.size() - 1; i >= 0; i--)//loop backwards through list
 				{
-					GoalSheet6_WindowClass check = theWindows.get(i);
+					//The current window we are working with here
+					GoalSheet6_WindowClass current = theWindows.get(i);
 					
-					int checkX = check.getPosition().getX();
 					
-					int checkY = check.getPosition().getY();
+					//Stuff about the rectangle of the current window we are checking
+					int currentX = current.getPosition().getX();
 					
-					double checkWidth = check.getWidth();
+					int currentY = current.getPosition().getY();
 					
-					double checkLength = check.getLength();
+					double currentWidth = current.getWidth();
 					
-					if (clickX >=  checkX && clickX <= checkX + checkWidth && clickY >= checkY && clickY <= checkY + checkLength)
-					{//Check if click is within bounds
-						check.moveToCursor(new GoalSheet6_Point(clickX, clickY));//Pass new corner point
+					double currentLength  = current.getLength();
+					
+					
+					//Is the click in the area of the window?
+					if (clickX >=  currentX && clickX <= currentX + currentWidth && clickY >= currentY && clickY <= currentY + currentLength)
+					{
+						//Move the current window to the point of the click if the click was in its area
+						current.moveToCursor(new GoalSheet6_Point(clickX, clickY));
+						
+						
+						//Get rid of the current window at its old position
 						theWindows.remove(i);
-						theWindows.add(check); //remove and append
 						
+						//Add the new and improved 2017 version to the list
+						theWindows.add(current);
 						
-						System.out.println("Success");
-						exists = true;
+						//Let the user know that their window was moved to the point of the click
+						System.out.println("Window was moved to the point of the click");
+						
+						//Assign the value of true to a boolean called windowExists
+						windowExists = true;
 						
 						break;
 					}
 				}
 				
-				
-				if (!exists)
+				//If the window does not exist
+				if (!windowExists)
 				{
-					System.out.println("There isn't a window at that position");
+					System.out.println("THERE IS NO WINDOW THERE! WHAT ARE YOU DOING?!?!?!?!");
 				}
 			}
 			else
 			{
-				System.out.println("That is invalid");
+				//If the user doesn't know what the numbers 1, 2, and 3 are
+				System.out.println("THAT IS INVALID");
 			}
 		}
-		while (choice != 0);
+		while (menuChoice != 3);
 		
-		
-		System.out.println("Program finished");
+		//Avoid memory leaks
+		_sc.close();
 	}
 	
 }
