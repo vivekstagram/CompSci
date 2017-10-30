@@ -33,6 +33,13 @@ public class GoalSheet6_WindowRectangles {
 			System.out.println("1: Open another window because there isn't enough already");
 			System.out.println("2: Click to move a window that already exists since you settled on a point you didn't like");
 			System.out.println("3: Move to quittersville");
+			
+			//Print out the windows from the top of the list (highest z-order) to the bottom
+			for (int i = theWindows.size(); i >= 0; i--)
+			{
+				System.out.println("Window " + i + " Dimensions: " + theWindows.get(i).getLength());
+			}
+			
 		
 			menuChoice = _sc.nextInt();
 			
