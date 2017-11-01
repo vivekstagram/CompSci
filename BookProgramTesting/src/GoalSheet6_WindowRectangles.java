@@ -35,9 +35,14 @@ public class GoalSheet6_WindowRectangles {
 			System.out.println("3: Move to quittersville");
 			
 			//Print out the windows from the top of the list (highest z-order) to the bottom
-			for (int i = theWindows.size(); i >= 0; i--)
+			for (int i = theWindows.size() - 1; i >= 0; i--)
 			{
-				System.out.println("Window " + i + " Dimensions: " + theWindows.get(i).getLength());
+				System.out.println("Window " + (i + 1) + ": Dimensions: " + 
+								theWindows.get(i).getLength() + " x " + 
+								theWindows.get(i).getWidth() + 
+								" Location: " + "(" + 
+								theWindows.get(i).getPoint().getX() + ", " + 
+								theWindows.get(i).getPoint().getY() + ")");
 			}
 			
 		
