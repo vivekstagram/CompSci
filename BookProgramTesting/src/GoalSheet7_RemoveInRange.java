@@ -40,7 +40,7 @@ public class GoalSheet7_RemoveInRange {
 		
 		while (itr.hasNext())
 		{
-			System.out.println(itr.next());
+			System.out.print(itr.next() + ", ");
 		}
 		
 		
@@ -55,7 +55,10 @@ public class GoalSheet7_RemoveInRange {
 			int i;
 			
 			for (i = 0; i < lowerBound; i++)
+			{
 				itr.next();
+			}
+			
 			
 			while (i < upperBound)
 			{
