@@ -16,6 +16,7 @@ public class GoalSheet7_SortAndRemoveDuplicates
 	{
 		List<Integer> list = new ArrayList<Integer>();
 		
+		//The same values that are presented on the problem definition on Goal Sheet 7
 		int[] valuesUnsorted = {7, 4, -9, 4, 15, 8, 27, 7, 11, -5, 32, -9, -9};
 		
 		for (int i : valuesUnsorted) //Add values to list from array
@@ -23,7 +24,7 @@ public class GoalSheet7_SortAndRemoveDuplicates
 			list.add(i);
 		}
 		
-		
+		//Call the method on the unsorted values
 		list = sortAndRemoveDuplicates(list);
 		
 		System.out.println("Original Values Sorted Without Duplicates: "); //print out values
@@ -37,20 +38,22 @@ public class GoalSheet7_SortAndRemoveDuplicates
 	
 	public static List<Integer> sortAndRemoveDuplicates(List<Integer> l)
 	{
+		//Can't contain duplicates and is in ascending order
 		SortedSet<Integer> sortedWithoutDuplicates = new TreeSet<Integer>();
 		
+		//An iteragtor to help us move through the list
 		Iterator<Integer> i = l.iterator();
 		
 		while (i.hasNext())
 		{
-			//Iterate through list, add to sorted set
+			//Iterate through list, add to sorted set. It automatically rejects duplicates
 			sortedWithoutDuplicates.add(i.next());
 		}
 		
 		//The set automatically determines if an element already exists.
 		
 		
-		
+		//Really weird way to return a list from a sorted set
 		return Arrays.asList(sortedWithoutDuplicates.toArray(new Integer[0]));
 	}
 	
