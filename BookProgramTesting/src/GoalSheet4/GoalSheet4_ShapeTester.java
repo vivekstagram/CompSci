@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 import GoalSheet5.GoalSheet5_Square;
 
-
 public class GoalSheet4_ShapeTester 
 {
 	public static void main(String[] args)
