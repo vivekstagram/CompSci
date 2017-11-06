@@ -29,9 +29,6 @@ public class GoalSheet8_CountUnique {
 		
 		int unique = countUnique(l);
 		
-		Iterator<Integer> itr = l.iterator();
-		
-
 		System.out.println(unique);
 		
 	}
