@@ -1,5 +1,13 @@
 package GoalSheet8;
-
+/*
+ * Name: Vivek Patel
+ * Date: 11/8/2017
+ * Purpose: Write a method called partition that accepts a list of integers and an integer value E as
+			its parameters, and rearranges (partitions) the list so that all elements with values less
+			than E occur before all elements with values greater than E. The exact order of the
+			elements is unimportant, so long as all elements less than E appear before all elements
+			greater than E.
+ */
 
 import java.util.*;
 
@@ -10,7 +18,7 @@ public class GoalSheet8_Partition {
 		List<Integer> theList = new ArrayList<Integer>();
 		
 		//E = 3
-		theList.add(1); theList.add(3); theList.add(5); theList.add(6); theList.add(7); theList.add(-1); theList.add(2);
+		theList.add(1); theList.add(3); theList.add(5); theList.add(6); theList.add(7); theList.add(0); theList.add(2);
 		
 		List<Integer> l = partition(theList, 3);
 		
@@ -21,46 +29,28 @@ public class GoalSheet8_Partition {
 	}
 	
 	
-	public static List<Integer> partition(List<Integer> l, Integer E)
+	public static List<Integer> partition(List<Integer> l, int E)
 	{
 		Iterator<Integer> itr = l.iterator();
 		
-		l.sort(null);
+		List<Integer> partitioned = new ArrayList<Integer>();
 
-		/*while (itr.hasNext())
+		while (itr.hasNext())
 		{
-			//int current;// = itr.next().intValue();
-			int current = itr.next();
-			
+			int current = itr.next().intValue();
 			
 			if (current < E)
 			{
-				l.set(0, current);
-				//itr.remove();
+				partitioned.add(0, current);
 			}
-			
-			if (current > E)
+			else
 			{
-				l.set(l.size() -1, current);
-				//itr.remove();
+				partitioned.add(current);
 			}
-				
 		}
-		*/
-		
-		/*
-		for (int i = 0; i < l.size(); i++)
-		{
-			
-			if (l.get(i) < E)
-			{
-				l.set(0, l.get(i));
-				l.remove(i);
-			}
-		*/
 		
 		
-		return l;
+		return partitioned;
 	}
 	
 }
