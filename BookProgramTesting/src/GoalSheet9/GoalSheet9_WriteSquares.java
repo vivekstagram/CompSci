@@ -14,68 +14,29 @@ import java.util.*;
 public class GoalSheet9_WriteSquares {
 
 	public static void main(String args[]) {
-		writeSquares(8);
+		writeSquares(600);
 	}
 
-	/*
-	 * Prints out the first n square numbers in the order specified at the top of
-	 * the file n is the number of squares to work with
-	 
 	public static void writeSquares(int n) {
-		int[] values = new int[n];
 		
+		List<Integer> lol = new ArrayList<Integer>();
 		
-		for (int i = n; i > 0; i--) 
-		{
-			if (i % 2 == 1) 
-			{
-				for (int j = 0; j < (values.length / 2); j++) 
-				{
-					if (values[j] == 0) 
-					{
-						values[j] = i ^ i;
-					}
-				}
-			} 
-			
-			if (i % 2 == 0)
-			{
-				for (int j = n - 1; j >= (values.length / 2); j--) 
-				{
-					if (values[j] == 0)
-					{
-						values[j] = i * i;
-					}
-				}
-			}
-		}
-		
-		for (Integer i: values)
-		{
-			System.out.print(i + ", ");
-		}
-	
-	}
-	*/
-	
-	public static void writeSquares(int n)//Method with Singular parameter for user ease.
-	{
-		if (n == 1)//base case
+		if (n == 1)
 		{
 			System.out.print("1, ");
 			return;
 		}
-		if (n % 2 == 1)
+		
+		if (n % 2 == 0)
 		{
-			System.out.print(n * n + ", ");
-			writeSquares(n - 1);//Printing has to wait until base case is reached
-		}
-		else
-		{
-			writeSquares(n - 1);
-			System.out.print(n * n + ", ");//Prints out even squares before recursing. Allows for intermittent printing while functions are stacking up
+			writeSquares(n-1);
+			System.out.print(n*n + ", ");
 		}
 		
+		if (n % 2 == 1)
+		{
+			System.out.print(n*n + ", ");
+			writeSquares(n-1);
+		}
 	}
-	
 }
