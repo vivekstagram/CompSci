@@ -14,7 +14,7 @@ public class GoalSheet9_MergeSort {
 
 	public static void main(String args[]) throws FileNotFoundException {
 
-		Scanner sc = new Scanner(new File("src/GoalSheet9/WARANDPEACE.txt"));
+		Scanner sc = new Scanner(new File("src/GoalSheet9/Hamlet.txt"));
 
 		List<String> theList = new ArrayList<String>();
 
@@ -25,7 +25,7 @@ public class GoalSheet9_MergeSort {
 
 		theList = mergeSort(theList);
 
-		PrintStream p = new PrintStream(new File("src/GoalSheet9/WARANDPEACE ALPHABETIZED.txt"));
+		PrintStream p = new PrintStream(new File("src/GoalSheet9/Hamlet ALPHABETIZED.txt"));
 
 		// Print the lines
 		for (String s : theList) {
