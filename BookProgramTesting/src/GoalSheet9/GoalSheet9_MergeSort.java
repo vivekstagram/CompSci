@@ -9,12 +9,15 @@ package GoalSheet9;
 
 import java.util.*;
 import java.io.*;
+import java.time.*;
 
 public class GoalSheet9_MergeSort {
 
 	public static void main(String args[]) throws FileNotFoundException {
 
-		Scanner sc = new Scanner(new File("src/GoalSheet9/Hamlet.txt"));
+		long initTime = System.currentTimeMillis();
+		
+		Scanner sc = new Scanner(new File("src/GoalSheet9/WARANDPEACE.txt"));
 
 		List<String> theList = new ArrayList<String>();
 
@@ -25,7 +28,7 @@ public class GoalSheet9_MergeSort {
 
 		theList = mergeSort(theList);
 
-		PrintStream p = new PrintStream(new File("src/GoalSheet9/Hamlet ALPHABETIZED.txt"));
+		PrintStream p = new PrintStream(new File("src/GoalSheet9/WARANDPEACE ALPHABETIZED.txt"));
 
 		// Print the lines
 		for (String s : theList) {
@@ -37,7 +40,9 @@ public class GoalSheet9_MergeSort {
 
 		sc.close();
 		
-		System.out.println("done");
+		long executionTime = System.currentTimeMillis() - initTime;
+		
+		System.out.println("done in " + executionTime);
 	}
 
 	public static List<String> mergeSort(List<String> theStrings) {
