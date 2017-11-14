@@ -12,64 +12,68 @@ import java.io.*;
 
 public class GoalSheet9_MergeSort {
 
-	public static void main(String args[])
-	{
+	public static void main(String args[]) throws FileNotFoundException {
+
+		Scanner sc = new Scanner(new File("src/GoalSheet9/WARANDPEACE.txt"));
+
 		List<String> theList = new ArrayList<String>();
-		List<String> cont = new ArrayList<String>();
-		
-		theList.add("Connor");
-		theList.add("Amy");
-		theList.add("Vivek");
-		theList.add("Jackson");
-		theList.add("Callum");
-		
-		
-		theList = mergeSort(theList);
-		
-		System.out.println("Sorted: " + theList.toString());
-		
-	}
-	
-	public static List<String> mergeSort(List<String> theStrings)
-	{
-		System.out.println("In mergeSort we are sorting " + theStrings.toString());
-		
-		if (theStrings.size() > 1)
-		{
-			//Split into two 'halves'
-			List<String> left = theStrings.subList(0, theStrings.size() / 2);
-			List<String> right = theStrings.subList(theStrings.size() / 2, theStrings.size());
-		
-			//Recursively sort the two halves
-			mergeSort(left);
-			mergeSort(right);
-			
-			//Merge the sorted halves
-			merge(theStrings, left, right);
+
+		while (sc.hasNextLine()) {
+			String s = sc.nextLine();
+			theList.add(s);
 		}
+
+		theList = mergeSort(theList);
+
+		PrintStream p = new PrintStream(new File("src/GoalSheet9/WARANDPEACE ALPHABETIZED.txt"));
+
+		// Print the lines
+		for (String s : theList) {
+			p.println(s);
+		}
+
+		// For memory leak prevention purposes
+		p.close();
+
+		sc.close();
 		
+		System.out.println("done");
+	}
+
+	public static List<String> mergeSort(List<String> theStrings) {
+		if (theStrings.size() > 1) {
+			// Split into two 'halves'
+			List<String> left = theStrings.subList(0, (theStrings.size() / 2));
+			List<String> right = theStrings.subList((theStrings.size() / 2), theStrings.size());
+
+			// Recursively split the two halves
+			left = mergeSort(left);
+			right = mergeSort(right);
+
+			// Merge the sorted halves
+			theStrings = merge(theStrings, left, right);
+		}
+
 		return theStrings;
 	}
-	
-	public static void merge(List<String> container, List<String> left, List<String> right)
-	{
-		System.out.println("In merge we are merging " + left.toString() + " and " + right.toString());
-		
-		
+
+	public static List<String> merge(List<String> container, List<String> left, List<String> right) {
+
+		List<String> emptyContainer = new ArrayList<String>(container.size());
+
 		int indexLeft = 0, indexRight = 0;
-		
-		for (int i = 0; i < container.toArray().length; i++)
-		{
-			if ( indexRight >= right.toArray().length || ( indexLeft < left.toArray().length && left.get(indexLeft).compareTo(right.get(indexRight)) < 0 ) )
-			{	
-				container.toArray()[i] = left.get(indexLeft);
+
+		for (int i = 0; i < container.size(); i++) {
+			if (indexRight >= right.size() || (indexLeft < left.size()
+					&& left.get(indexLeft).compareToIgnoreCase(right.get(indexRight)) < 0)) {
+				emptyContainer.add(left.get(indexLeft));
 				indexLeft++;
-			}
-			else
-			{
-				container.toArray()[i] = right.get(indexRight);
+			} else {
+				emptyContainer.add(right.get(indexRight));
 				indexRight++;
 			}
 		}
+
+		return emptyContainer;
 	}
 }
