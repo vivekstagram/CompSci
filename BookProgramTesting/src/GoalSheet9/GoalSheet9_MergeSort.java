@@ -17,17 +17,16 @@ public class GoalSheet9_MergeSort {
 		List<String> theList = new ArrayList<String>();
 		List<String> cont = new ArrayList<String>();
 		
-		
-		theList.add("Amy");
 		theList.add("Connor");
+		theList.add("Amy");
 		theList.add("Vivek");
 		theList.add("Jackson");
 		theList.add("Callum");
 		
 		
-		cont = mergeSort(theList);
+		theList = mergeSort(theList);
 		
-		System.out.println("Sorted: " + cont.toString());
+		System.out.println("Sorted: " + theList.toString());
 		
 	}
 	
@@ -59,19 +58,18 @@ public class GoalSheet9_MergeSort {
 		
 		int indexLeft = 0, indexRight = 0;
 		
-		for (int i = 0; i < container.size(); i++)
+		for (int i = 0; i < container.toArray().length; i++)
 		{
-			if ( indexRight >= right.size() || ( indexLeft < left.size() && left.get(indexLeft).compareToIgnoreCase(right.get(indexRight)) <= 0 ) )
-			{
-				container.set(i, left.get(indexLeft));
+			if ( indexRight >= right.toArray().length || ( indexLeft < left.toArray().length && left.get(indexLeft).compareTo(right.get(indexRight)) < 0 ) )
+			{	
+				container.toArray()[i] = left.get(indexLeft);
 				indexLeft++;
 			}
 			else
 			{
-				container.set(i, right.get(indexRight));
+				container.toArray()[i] = right.get(indexRight);
 				indexRight++;
 			}
 		}
-		
 	}
 }
