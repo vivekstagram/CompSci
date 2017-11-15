@@ -13,19 +13,49 @@ import java.util.*;
 
 public class GoalSheet9_SelectionSort {
 
-	public static void main(String args)
+	public static void main(String args[])
 	{
+		List<Integer> list = new ArrayList<Integer>();
+		Random r = new Random();
+		for(int i = 0; i < 30; i++)//Initialize List
+		{
+			list.add(r.nextInt(100));
+		}
+		 
+		selectionSort(list);
 		 
 	}
 	
 	
 	public static void selectionSort(List<Integer> toCompare)
 	{
-		for (int i = 0; i < toCompare.size(); i++)
+		for (int i = toCompare.size()-1 ; i > 0; i--)
 		{
+			//The index of the largest element thus far
 			int largest = i;
 			
+			for (int j = i - 1; j >= 0; j--)
+			{
+				if (toCompare.get(j) > toCompare.get(largest))
+				{
+					largest = j;
+				}
+			}
+			
+			swapElements(toCompare, i, largest);
+			
 		}
+		
+		System.out.println(toCompare.toString());
+		
 	}
+	
+	public static void swapElements(List<Integer> l, int i, int j)
+	{
+		int temp = l.get(i);
+		l.set(i, l.get(j));
+		l.set(j, temp);
+	}
+	
 }
 	

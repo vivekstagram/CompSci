@@ -14,7 +14,7 @@ public class GoalSheet9_RecursiveFibonacci {
 	{	
 		List<Integer> out = new ArrayList<Integer>();
 		
-		recursiveFibonacci(7, out);
+		recursiveFibonacci(5, out);
 		
 		for (Integer i : out)
 		{
@@ -26,18 +26,21 @@ public class GoalSheet9_RecursiveFibonacci {
 	{
 		int currentFibonacci = 0;
 		
-		if (n < 2)
+		if (n < 4)
 		{
-			out.add(n);
-			return n;
+			if (n == 1)
+			{
+				out.add(0);
+				return 0;
+			}
+			else
+			{
+				out.add(1);
+				return 1;
+			}
 		}
-		else
-		{
-			
-		}
-
-		currentFibonacci += recursiveFibonacci(n - 1, out) + recursiveFibonacci(n - 2, out);
 		
+		currentFibonacci = recursiveFibonacci(n - 1, out) + recursiveFibonacci(n - 2, out);
 		out.add(currentFibonacci);
 		
 		
