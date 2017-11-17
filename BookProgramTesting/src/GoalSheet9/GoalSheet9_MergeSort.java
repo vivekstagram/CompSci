@@ -51,7 +51,7 @@ public class GoalSheet9_MergeSort {
 			List<String> left = theStrings.subList(0, (theStrings.size() / 2));
 			List<String> right = theStrings.subList((theStrings.size() / 2), theStrings.size());
 
-			// Recursively split the two halves
+			// Recursively split the two halves until we are at lengths of 1
 			left = mergeSort(left);
 			right = mergeSort(right);
 
