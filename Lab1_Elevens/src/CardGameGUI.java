@@ -358,8 +358,39 @@ public class CardGameGUI extends JFrame implements ActionListener {
 						&& board.cardAt(k) != null) {
 					selections[k] = !selections[k];
 					repaint();
+					
+					
+					// Gather all the selected cards.
+					List<Integer> selection = new ArrayList<Integer>();
+					for (int r = 0; r < board.size(); r++) {
+						if (selections[r]) {
+							selection.add(new Integer(r));
+						}
+					}
+					// Make sure that the selected cards represent a legal replacement.
+					if (!board.isLegal(selection)) {
+						signalError();
+						return;
+					}
+					for (int b = 0; b < board.size(); b++) {
+						selections[b] = false;
+					}
+					// Do the replace.
+					board.replaceSelectedCards(selection);
+					if (board.gameIsWon()) {
+						signalWin();
+					} else if (!board.anotherPlayIsPossible()) {
+						signalLoss();
+					}
+					repaint();
+					
+					
+					
+					
 					return;
 				}
+				
+				
 			}
 			signalError();
 		}
