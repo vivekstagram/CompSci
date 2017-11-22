@@ -127,10 +127,14 @@ public class GoalSheet6_WindowRectangles {
 					System.out.println("THERE IS NO WINDOW THERE! WHAT ARE YOU DOING?!?!?!?!");
 				}
 			}
+			else if (menuChoice == 3)
+			{
+				System.out.println("GOODBYE");
+			}
 			else
 			{
 				//If the user doesn't know what the numbers 1, 2, and 3 are
-				System.out.println("THAT IS INVALID");
+				System.out.println("INVALIDOPTIONSINCEITISNTONTHEMENUEXCEPTION");
 			}
 		}
 		while (menuChoice != 3);
