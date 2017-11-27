@@ -5,7 +5,7 @@ package GoalSheet6;
  * Purpose: Write a class that models a list of possibly overlapping rectangular two-
 			dimensional window regions, like the windows for the programs open on your
 			computer. The order of the rectangles in the list implies the order in which
-			they would display on the screen (sometimes called the “z-order�?), from 0 on
+			they would display on the screen (sometimes called the “z-order�?), from 0 on
 			the bottom to size()-1 on the top. Each rectangle stores its (x,y) position,
 			width, and height. Your rectangle list class should have a method that takes a
 			Point as a parameter, treats it as though the user clicked that Point on the
@@ -102,7 +102,7 @@ public class GoalSheet6_WindowRectangles {
 					if (clickX >=  currentX && clickX <= currentX + currentWidth && clickY >= currentY && clickY <= currentY + currentLength)
 					{
 						//Move the current window to the point of the click if the click was in its area
-						current.moveToCursor(new GoalSheet6_Point(clickX, clickY));
+						current.moveToCursor(new GoalSheet6_Point(currentX, currentY));
 						
 						
 						//Get rid of the current window at its old position
