@@ -51,9 +51,6 @@ public class GoalSheet7_SortAndRemoveDuplicates
 			sortedWithoutDuplicates.add(i.next());
 		}
 		
-		//The set automatically determines if an element already exists.
-		
-		
 		//Really weird way to return a list from a sorted set
 		return Arrays.asList(sortedWithoutDuplicates.toArray(new Integer[0]));
 	}

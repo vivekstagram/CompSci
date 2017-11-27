@@ -26,19 +26,20 @@ public class GoalSheet7_IsUnique {
 		System.out.println(isUnique(theMap));
 	}
 	
-	//Is the set unique?
+	//Is the map unique?
 	public static boolean isUnique(HashMap<String, String> toBeJudged)
 	{
 		//CAN'T CONTAIN DUPLICATES
 		Set<String> checker = new HashSet<String>();
 		
+		//Go through the values of the map
 		for (String str : toBeJudged.values())
 		{
 			//WON'T ADD DUPLICATES
 			checker.add(str);
 		}
 		
-		//If they are the same size then the array is unique. If the keySet.size is larger, then the condition will be false
+		//If they are the same size then the map is unique. If the keySet.size() is larger, then the condition will be false
 		return checker.size() == toBeJudged.size();
 	}
 	

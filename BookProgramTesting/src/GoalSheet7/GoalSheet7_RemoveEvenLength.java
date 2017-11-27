@@ -37,11 +37,9 @@ public class GoalSheet7_RemoveEvenLength {
 		{
 			System.out.println(itr.next());
 		}
-		
-		
 	}
 	
-	public static Set<String> removeEvenLength(Set strs)
+	public static Set<String> removeEvenLength(Set<String> strs)
 	{
 		//Used to iterate through the set
 		Iterator<String> itr = strs.iterator();
