@@ -18,12 +18,13 @@ public class GoalSheet7_RemoveInRange {
 		LinkedList<Integer> theList = new LinkedList<Integer>();
 		
 		//Add some numbers to the list
+		//0 0 2 0 4 0 6 0 8 0 10 0 12 0 14 0 16
 		theList.add(0);
 		theList.add(0);
 		theList.add(2);
 		theList.add(0);
 		theList.add(4);
-		theList.add(0);
+		theList.add(0);//5
 		theList.add(6);
 		theList.add(0);
 		theList.add(8);
@@ -31,7 +32,7 @@ public class GoalSheet7_RemoveInRange {
 		theList.add(10);
 		theList.add(0);
 		theList.add(12);
-		theList.add(0);
+		theList.add(0);//13
 		theList.add(14);
 		theList.add(0);
 		theList.add(16);

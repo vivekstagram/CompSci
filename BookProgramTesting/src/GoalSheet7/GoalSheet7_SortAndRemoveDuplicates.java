@@ -52,7 +52,8 @@ public class GoalSheet7_SortAndRemoveDuplicates
 		}
 		
 		//Really weird way to return a list from a sorted set
-		return Arrays.asList(sortedWithoutDuplicates.toArray(new Integer[0]));
+		//return Arrays.asList(sortedWithoutDuplicates.toArray(new Integer[0]));
+		return new LinkedList<Integer>(sortedWithoutDuplicates);
 	}
 	
 }
