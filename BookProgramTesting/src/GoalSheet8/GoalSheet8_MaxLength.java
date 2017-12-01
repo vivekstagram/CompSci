@@ -29,6 +29,10 @@ public class GoalSheet8_MaxLength {
 		//The length of the longest string thus far into the set
 		int highScore = 0;
 		
+		//In case the set is empty
+		if (stringSet.size() == 0)
+			return 0;
+		
 		//Loop through the set
 		for (String str: stringSet)
 		{

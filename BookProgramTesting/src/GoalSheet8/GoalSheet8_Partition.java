@@ -49,9 +49,19 @@ public class GoalSheet8_Partition {
 			}
 			else
 			{
-				//Add to the end
 				partitioned.add(current);
 			}
+			
+			//if (current > E)
+			//{
+			//	//Add to the end
+			//	partitioned.add(current);
+			//}
+			
+			//if (current == E)
+			//{
+			//	partitioned.add(current);
+			//}
 		}
 		
 		
