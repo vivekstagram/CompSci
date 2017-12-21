@@ -111,6 +111,81 @@ public class PictureTester
     beach.explore();
   }
   
+  public static Picture copy(Picture toPic, Picture fromPic, int destRow, int destCol, int fromStartRow, int fromEndRow, int fromStartCol, int fromEndCol)
+  {
+	  Picture collage = toPic;
+	  Pixel fromPixel = null;
+	  Pixel toPixel = null;
+	  Pixel[][] toPixels = collage.getPixels2D();
+	  Pixel[][] fromPixels = fromPic.getPixels2D();
+	  for(int fromRow = fromStartRow, toRow = destRow; 
+			  (fromRow < fromEndRow && fromRow < fromPixels.length) && (toRow < toPixels.length); fromRow++, toRow++)
+	  {
+		  for(int fromCol = fromStartCol, toCol = destCol; 
+				  fromCol < fromEndCol && fromCol < fromPixels.length && toCol < toPixels.length; fromCol++, toCol++)
+		  {
+			  fromPixel = fromPixels[fromRow][fromCol];
+			  toPixel = toPixels[toRow][toCol];
+			  toPixel.setColor(fromPixel.getColor());
+		  }
+	  }
+	  return collage;
+  }
+  
+  public static void testCollage()
+  {
+	  Picture collage = new Picture("640x480.jpg");
+	  Picture flower1 = new Picture("flower1.jpg");
+	  Pixel[][] fl1Pixels = flower1.getPixels2D();
+	  int fl1NumRows = fl1Pixels.length;
+	  int fl1NumCols = fl1Pixels[0].length;
+	  collage = copy(collage, flower1, 10, 10, 0, fl1NumRows, 0, fl1NumCols);
+	  
+	  Picture flower2 = new Picture("flower2.jpg");
+	  Pixel[][] fl2Pixels = flower2.getPixels2D();
+	  int fl2NumRows = fl2Pixels.length;
+	  int fl2NumCols = fl2Pixels[0].length;
+	  collage = copy(collage, flower2, 30, 10, 0, fl2NumRows, 0, fl2NumCols);
+	  
+	  Picture arch = new Picture("arch.jpg");
+	  Pixel[][] archPixels = arch.getPixels2D();
+	  int archNumRows = archPixels.length;
+	  int archNumCols = archPixels[0].length;
+	  collage = copy(collage, arch, 50, 50, 0, archNumRows, 0, archNumCols);
+	  
+	  collage.mirrorVertical();
+	  
+	  collage.explore();
+  }
+  
+  public static void testMirrorGull()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  //234, 238
+	  //322, 344
+	  //360
+	  Pixel[][] pixels = gull.getPixels2D();
+	  
+	  gull.explore();
+	  
+	  Pixel left = null;
+	  Pixel right = null;
+	  
+	  int pivot = 360;
+	  for(int row = 234; row <= 322; row++)
+	  {
+		  for(int col = 238; col <= 344; col++)
+		  {
+			  left = pixels[row][col];
+			  right = pixels[row][pivot - col + pivot];
+			  right.setColor(left.getColor());
+		  }
+	  }
+	  
+	  
+	  gull.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -118,14 +193,6 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
-  }
-  
-  /** Method to test the collage method */
-  public static void testCollage()
-  {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
   }
   
   /** Method to test edgeDetection */
@@ -158,7 +225,7 @@ public class PictureTester
     //testMirrorDiagonal(true);
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
