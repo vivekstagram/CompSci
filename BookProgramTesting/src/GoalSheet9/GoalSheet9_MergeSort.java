@@ -27,6 +27,10 @@ public class GoalSheet9_MergeSort {
 		}
 
 		theList = mergeSort(theList);
+		
+		long executionTime = System.currentTimeMillis() - initTime;
+		
+		System.out.println("sorted in " + executionTime + " ms");
 
 		PrintStream p = new PrintStream(new File("src/GoalSheet9/WARANDPEACE ALPHABETIZED.txt"));
 
@@ -40,9 +44,9 @@ public class GoalSheet9_MergeSort {
 
 		sc.close();
 		
-		long executionTime = System.currentTimeMillis() - initTime;
+		executionTime = System.currentTimeMillis() - initTime;
 		
-		System.out.println("done in " + executionTime);
+		System.out.println("sorted and written to file in " + executionTime + " ms");
 	}
 
 	public static List<String> mergeSort(List<String> theStrings) {

@@ -19,8 +19,6 @@ public class GoalSheet9_WriteSquares {
 
 	public static void writeSquares(int n) {
 		
-		List<Integer> lol = new ArrayList<Integer>();
-		
 		if (n == 1)
 		{
 			System.out.print("1, ");

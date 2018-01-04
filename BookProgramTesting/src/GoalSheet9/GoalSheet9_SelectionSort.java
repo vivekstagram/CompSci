@@ -17,7 +17,7 @@ public class GoalSheet9_SelectionSort {
 	{
 		List<Integer> list = new ArrayList<Integer>();
 		Random r = new Random();
-		for(int i = 0; i < 30; i++)//Initialize List
+		for(int i = 0; i < 30; i++)
 		{
 			list.add(r.nextInt(100));
 		}
@@ -31,7 +31,6 @@ public class GoalSheet9_SelectionSort {
 	{
 		for (int i = toCompare.size()-1 ; i > 0; i--)
 		{
-			//The index of the largest element thus far
 			int largest = i;
 			
 			for (int j = i - 1; j >= 0; j--)
