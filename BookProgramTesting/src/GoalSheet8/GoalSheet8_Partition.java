@@ -21,7 +21,7 @@ public class GoalSheet8_Partition {
 		theList.add(1); theList.add(3); theList.add(5); theList.add(6); theList.add(7); theList.add(0); theList.add(2);
 		
 		//Partition the list
-		List<Integer> l = partition(theList, 3);
+		List<Integer> l = partition(theList, 4);
 		
 		for (Integer i: l)
 		{
@@ -42,6 +42,20 @@ public class GoalSheet8_Partition {
 		{
 			int current = itr.next().intValue();
 			
+			if (current == E)
+			{
+				//Add to the beginning of the list
+				partitioned.add(0, current);
+				itr.remove();
+			}
+		}
+		
+		itr = l.iterator();
+		
+		while (itr.hasNext())
+		{
+			int current = itr.next().intValue();
+			
 			if (current < E)
 			{
 				//Add to the beginning of the list
@@ -51,19 +65,7 @@ public class GoalSheet8_Partition {
 			{
 				partitioned.add(current);
 			}
-			
-			//if (current > E)
-			//{
-			//	//Add to the end
-			//	partitioned.add(current);
-			//}
-			    
-			//if (current == E)
-			//{
-			//	partitioned.add(current);
-			//}
 		}
-		
 		
 		return partitioned;
 	}
