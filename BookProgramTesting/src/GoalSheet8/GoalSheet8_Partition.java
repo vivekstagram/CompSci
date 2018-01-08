@@ -21,7 +21,7 @@ public class GoalSheet8_Partition {
 		theList.add(1); theList.add(3); theList.add(5); theList.add(6); theList.add(7); theList.add(0); theList.add(2);
 		
 		//Partition the list
-		List<Integer> l = partition(theList, 4);
+		List<Integer> l = partition(theList, 5);
 		
 		for (Integer i: l)
 		{
