@@ -17,7 +17,14 @@ public class GoalSheet8_Rarest {
 		Map<String, Integer> m = new HashMap<String, Integer>();
 		
 		//Put some stuff into the map
-		m.put("Vivek", 1738); m.put("Connor", 448); m.put("Jackson", 1738); m.put("Bryce", 1738); m.put("Callum", 448); m.put("LOL", 448); m.put("AP LANG", 6);
+		//m.put("Vivek", 1738); 
+		m.put("Connor", 448); 
+		m.put("Bryce", 1738); 
+		m.put("Callum", 448); 
+		//m.put("LOL", 448); 
+		m.put("AP LANG", 6000); 
+		m.put("AP COMP SCI", 6000); 
+		m.put("AP CALC", 6000);
 		
 		//Print out the result of the call, making sure to catch any rogue exceptions
 		try
