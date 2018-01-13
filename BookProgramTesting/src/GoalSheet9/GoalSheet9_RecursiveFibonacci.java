@@ -12,11 +12,15 @@ public class GoalSheet9_RecursiveFibonacci {
 
 	public static void main(String args[])
 	{	
+long initTime = System.currentTimeMillis();
+		
 		//The number being compared in the looping condition is how many Fibonacci numbers the user wants to output
 		for (int i = 1; i <= 20; i++)
 		{
-			 System.out.println(recursiveFibonacci(i));
+			System.out.println(recursiveFibonacci(i));
 		}
+		
+		System.out.println("Execution time: " + (System.currentTimeMillis() - initTime) + " milliseconds");
 	}
 	
 	//Returns the nth number in the Fibonacci series with the first number being 0
