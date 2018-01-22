@@ -6,7 +6,7 @@ package GoalSheet9;
 			each time and moves it to the end of the array, rather than selecting the smallest element
 			and moving it to the beginning. Will this algorithm be faster than the standard selection
 			sort? What will its complexity class (big-O) be? (BJP Ch 13 Ex 8)
- */
+*/
 
 
 import java.util.*;
