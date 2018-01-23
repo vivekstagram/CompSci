@@ -66,6 +66,10 @@ public class GoalSheet9_MergeSort {
 		return theStrings;
 	}
 
+	/*
+	 * The linear portion of the program in which the sublists are spliced together with a for loop on the way back through the call stack
+	 * 		where the recursive calls are resolved
+	 * */
 	public static List<String> merge(List<String> container, List<String> left, List<String> right) {
 
 		List<String> emptyContainer = new ArrayList<String>(container.size());
