@@ -6,7 +6,7 @@
 //if (n <= 2) {
 //return 1;
 //} else {
-//return fib(n – 1) + fib(n - 2);
+//return fib(n ï¿½ 1) + fib(n - 2);
 //}
 //}
 //The code shown runs very slowly for even relatively small values of n; it can take minutes or hours to compute even
@@ -22,12 +22,14 @@ import java.util.*;
 
 public class GoalSheet10_BJP_CH12_Pr16 {
 
+	public static List<Integer> theLookUpTable = new ArrayList<Integer>();
+	
 	public static void main(String args[])
 	{
 		long initTime = System.currentTimeMillis();
 		
 		//The number being compared in the looping condition is how many Fibonacci numbers the user wants to output
-		for (int i = 1; i <= 20; i++)
+		for (int i = 1; i <= 40; i++)
 		{
 			System.out.println(fibonacci(i));
 		}
@@ -37,9 +39,11 @@ public class GoalSheet10_BJP_CH12_Pr16 {
 	
 	public static int fibonacci(int n)
 	{
-		List<Integer> theLookUpTable = new ArrayList<Integer>();
-		
-		if (n < 3)
+		if (n == 0)
+		{
+			return 0;
+		}
+		else if (n < 2)
 		{
 			return 1;
 		}

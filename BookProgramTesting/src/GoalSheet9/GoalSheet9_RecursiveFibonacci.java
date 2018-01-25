@@ -15,7 +15,7 @@ public class GoalSheet9_RecursiveFibonacci {
 long initTime = System.currentTimeMillis();
 		
 		//The number being compared in the looping condition is how many Fibonacci numbers the user wants to output
-		for (int i = 1; i <= 20; i++)
+		for (int i = 1; i <= 40; i++)
 		{
 			System.out.println(recursiveFibonacci(i));
 		}
