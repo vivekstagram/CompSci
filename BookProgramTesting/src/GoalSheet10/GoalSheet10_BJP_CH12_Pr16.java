@@ -39,30 +39,26 @@ public class GoalSheet10_BJP_CH12_Pr16 {
 	
 	public static int fibonacci(int n)
 	{
-		if (n == 0)
-		{
-			return 0;
-		}
-		else if (n < 2)
+		if (n <= 2)
 		{
 			return 1;
 		}
-		else if (n < theLookUpTable.size() && (theLookUpTable.get(n - 1) != null && theLookUpTable.get(n - 2) != null))
-		{
-			return theLookUpTable.get(theLookUpTable.size() - 1) + theLookUpTable.get(theLookUpTable.size() - 2);
-		}
 		else
 		{
-			fibStore(fibonacci(n - 1), fibonacci(n - 2), theLookUpTable);
-			return theLookUpTable.get(theLookUpTable.size() - 1) + theLookUpTable.get(theLookUpTable.size() - 2);
-
+			return fib2(n, 3, 1, 1);
 		}
 	}
 	
-	public static void fibStore(int one, int two, List<Integer> lookUpTable)
+	public static int fib2(int n, int i, int prev, int curr)
 	{
-		lookUpTable.add(one);
-		lookUpTable.add(two);
+		if (n == i)
+		{
+			return prev + curr;
+		}
+		else
+		{
+			return fib2(n, i + 1, curr, prev + curr);
+		}
 	}
 	
 	
