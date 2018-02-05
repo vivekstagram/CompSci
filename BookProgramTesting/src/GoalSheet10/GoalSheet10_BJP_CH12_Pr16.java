@@ -29,7 +29,7 @@ public class GoalSheet10_BJP_CH12_Pr16 {
 		long initTime = System.currentTimeMillis();
 		
 		//The number being compared in the looping condition is how many Fibonacci numbers the user wants to output
-		for (int i = 1; i <= 40; i++)
+		for (int i = 1; i <= 43; i++)
 		{
 			System.out.println(fibonacci(i));
 		}
@@ -61,9 +61,7 @@ public class GoalSheet10_BJP_CH12_Pr16 {
 		}
 		else
 		{
-			return fib2(n, i + 1, curr, prev + curr);
+			return fib2(n, i + 1, curr, prev + curr);//ESKETIT
 		}
-	}
-	
-	
+	}	
 }
