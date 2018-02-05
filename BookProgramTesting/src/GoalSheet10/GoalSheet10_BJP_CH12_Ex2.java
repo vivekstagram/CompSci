@@ -16,21 +16,31 @@ package GoalSheet10;
 
 public class GoalSheet10_BJP_CH12_Ex2 {
 
-	public static void main(String args[]) {
-		try {
+	public static void main(String args[]) 
+	{
+		//Use a try-catch block to make sure that any exceptions are handled with ease
+		try
+		{
 			writeNums(12);
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			System.out.println(e);
 		}
 	}
 
-	public static void writeNums(int n) throws IllegalArgumentException {
+	public static void writeNums(int n) throws IllegalArgumentException 
+	{
 		if (n < 1)
-			throw new IllegalArgumentException("n cannot be less than 1!");
+			throw new IllegalArgumentException("Argument cannot be less than 1");
 
-		if (n == 1) {
+		if (n == 1) 
+		{
 			System.out.print("1");
-		} else {
+		}
+		else 
+		{
+			//Delay printing and move on down the call stack
 			writeNums(n - 1);
 			System.out.print(", " + n);
 		}

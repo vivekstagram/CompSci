@@ -24,13 +24,21 @@ public class GoalSheet10_BJP_CH12_Ex3 {
 	
 	public static void main(String args[])
 	{
-		writeSequence(17);
+		//Use a try-catch block to make sure that any exceptions are handled with ease
+		try
+		{
+			writeSequence(12);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 	
 	public static void writeSequence(int n)
 		throws IllegalArgumentException
 	{
-		if (n < 1) throw new IllegalArgumentException();
+		if (n < 1) throw new IllegalArgumentException("Argument cannot be negative, fool");
 		
 		if (n == 1)
 		{
@@ -42,6 +50,9 @@ public class GoalSheet10_BJP_CH12_Ex3 {
 		} 
 		else 
 		{
+			//Really bad way of describing this segment: its like that problem about the function 'mystery'
+			//	from the AP Multiple Choice from 2008
+			
 			int m = (n + 1) / 2;
 			
 			System.out.print(m + " ");

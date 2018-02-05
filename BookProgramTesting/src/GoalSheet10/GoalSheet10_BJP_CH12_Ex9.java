@@ -11,12 +11,15 @@ public class GoalSheet10_BJP_CH12_Ex9 {
 
 	public static void main(String args[])
 	{
+		//Use a try-catch block to make sure that any exceptions are handled properly
 		try
 		{
-			System.out.println(sumTo(2));
+			System.out.println(sumTo(3));
 		}
+		//Uh-oh
 		catch (Exception e)
 		{
+			//Print out the message of the exception
 			System.out.println(e);
 		}
 	}

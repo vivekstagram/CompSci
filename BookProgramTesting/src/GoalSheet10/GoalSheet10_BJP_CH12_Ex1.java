@@ -15,7 +15,15 @@ public class GoalSheet10_BJP_CH12_Ex1 {
 	
 	public static void main(String args[])
 	{
-		starString(4);
+		//Use a try-catch block to make sure that any exceptions are handled with ease
+		try
+		{
+			starString(4);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 	
 	public static void starString(int n)
@@ -28,6 +36,7 @@ public class GoalSheet10_BJP_CH12_Ex1 {
 			System.out.print("*");
 		else
 		{
+			//Just print 2 of starString(n - 1)
 			starString(n - 1);
 			starString(n - 1);
 	
