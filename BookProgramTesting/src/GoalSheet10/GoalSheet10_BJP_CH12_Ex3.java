@@ -27,7 +27,7 @@ public class GoalSheet10_BJP_CH12_Ex3 {
 		//Use a try-catch block to make sure that any exceptions are handled with ease
 		try
 		{
-			writeSequence(12);
+			writeSequence(10);
 		}
 		catch (Exception e)
 		{
