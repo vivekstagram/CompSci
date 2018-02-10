@@ -26,17 +26,21 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 		
 		Scanner sc2 = new Scanner(System.in);
 		
-		System.out.println("What's the first word?: ");
 		
+		System.out.println("What's the first word?: ");
 		String w1 = sc2.nextLine();
 		
-		System.out.println("What's the second word?: ");
 		
+		System.out.println("What's the second word?: ");
 		String w2 = sc2.nextLine();
 		
-		int ind1 = Collections.binarySearch(theList, w1, String.CASE_INSENSITIVE_ORDER);
 		
-		int ind2 = Collections.binarySearch(theList, w2, String.CASE_INSENSITIVE_ORDER);
+		int ind1 = binarySearch(theList, w1);
+		int ind2 = binarySearch(theList, w2);
+		
+		
+		//int ind1 = Collections.binarySearch(theList, w1, String.CASE_INSENSITIVE_ORDER);
+		//int ind2 = Collections.binarySearch(theList, w2, String.CASE_INSENSITIVE_ORDER);
 		
 		if (ind1 < 0)//Not found
 		{
@@ -57,4 +61,35 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 		sc1.close();
 		sc2.close();
 	}
+	
+	
+	public static int binarySearch(List<String> a, String b) 
+	{
+        if (a.size() == 0) 
+        {
+            return -10000;
+        }
+        
+        int low = 0;
+        int high = a.size() - 1;
+
+        while(low <= high ) 
+        {
+            int middle = (low + high) / 2;
+            
+            if (b.compareTo(a.get(middle)) > 0 )
+            {
+                low = middle + 1;
+            }
+            else if (b.compareTo(a.get(middle)) < 0)
+            {
+                high = middle - 1;
+            } 
+            else 
+            { // The element has been found
+                return middle;
+            }
+        }
+        return -10000;
+    }
 }
