@@ -39,9 +39,6 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 		int ind2 = binarySearch(theList, w2);
 		
 		
-		//int ind1 = Collections.binarySearch(theList, w1, String.CASE_INSENSITIVE_ORDER);
-		//int ind2 = Collections.binarySearch(theList, w2, String.CASE_INSENSITIVE_ORDER);
-		
 		if (ind1 < 0)//Not found
 		{
 			System.out.println("First word not found");
@@ -63,33 +60,32 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 	}
 	
 	
-	public static int binarySearch(List<String> a, String b) 
+	public static int binarySearch(List<String> dictionary, String target)
 	{
-        if (a.size() == 0) 
-        {
-            return -10000;
-        }
-        
-        int low = 0;
-        int high = a.size() - 1;
-
-        while(low <= high ) 
-        {
-            int middle = (low + high) / 2;
-            
-            if (b.compareTo(a.get(middle)) > 0 )
-            {
-                low = middle + 1;
-            }
-            else if (b.compareTo(a.get(middle)) < 0)
-            {
-                high = middle - 1;
-            } 
-            else 
-            { // The element has been found
-                return middle;
-            }
-        }
-        return -10000;
-    }
+		if(dictionary.size() <= 1)
+		{
+			if(dictionary.get(0).compareToIgnoreCase(target) == 0)
+				return 0;//Word Found
+			else
+				throw new IllegalArgumentException("Word Not Found");
+		}
+		
+		int compare = dictionary.get(dictionary.size() / 2).compareToIgnoreCase(target);
+		
+		if(compare < 0)//Target comes after partition
+		{
+			return (int)Math.ceil((double)dictionary.size() / 2) + binarySearch(dictionary.subList(dictionary.size() / 2 + 1, dictionary.size()), target);
+			//Return number of indexes before partition, recursion with sub list
+		}
+		else if(compare > 0)
+		{
+			return binarySearch(dictionary.subList(0, dictionary.size() / 2), target);
+			//recursion with sub list
+		}
+		else
+		{
+			return (int)(dictionary.size() / 2);
+			//Index of target found
+		}
+	}
 }
