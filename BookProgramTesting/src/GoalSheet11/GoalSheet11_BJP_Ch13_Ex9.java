@@ -39,13 +39,16 @@ public class GoalSheet11_BJP_Ch13_Ex9
 	{
 		int largest, smallest;
 		
-		
 		for (int i = 0; i < l.size() - 1; i++)
 		{
+			
+			if (i >= l.size() - i - 1)
+				break;
+			
 			largest = l.size() - i - 1;
 			smallest = i;
 			
-			for (int j = i + 1; j < l.size() -i; j++)
+			for (int j = i; j < l.size() -i; j++)
 			{
 				if (l.get(j) < l.get(smallest))
 				{
@@ -60,10 +63,10 @@ public class GoalSheet11_BJP_Ch13_Ex9
 			
 			swapElements(l, i, smallest);
 			
-			//if (i == largest) 
-			//{
-			//	largest = smallest;
-			//}
+			if (i == largest) 
+			{
+				largest = smallest;
+			}
 			
 		    swapElements(l, (l.size() - i - 1), largest);
 		}
