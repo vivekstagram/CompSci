@@ -6,7 +6,7 @@ public class Pr3_Comp_FirstName implements Comparator<Pr3_Student> {
 
 	public int compare(Pr3_Student a, Pr3_Student b)
 	{
-		return a.getFirstName().compareTo(b.getFirstName());
+		return a.getFirstName().compareToIgnoreCase(b.getFirstName());
 	}
 	
 }

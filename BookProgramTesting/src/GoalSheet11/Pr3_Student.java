@@ -17,7 +17,7 @@ public class Pr3_Student {
 	};
 	
 	
-	public Pr3_Student(String fn, String ln, String id, double percent, String letter)
+	public Pr3_Student(String ln, String fn, String id, double percent, String letter)
 	{
 		firstName = fn;
 		lastName = ln;
