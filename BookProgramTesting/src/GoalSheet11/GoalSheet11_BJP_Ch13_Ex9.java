@@ -1,4 +1,6 @@
-//Dual selection sort
+//*******************Vivek Patel - Feb 2018 - BJP Ch 13 Ex 9*****************//
+
+
 package GoalSheet11;
 
 import java.util.ArrayList;
@@ -15,21 +17,6 @@ public class GoalSheet11_BJP_Ch13_Ex9
 			l.add((int)(Math.random() * 100));
 		}
 		
-		/*
-		l.add(6);
-		l.add(4);
-		l.add(3);
-		l.add(2);
-		l.add(1);
-		l.add(7);
-		l.add(8);
-		l.add(9);
-		l.add(10);
-		l.add(11);
-		l.add(12);
-		l.add(15);
-		l.add(0);
-		*/
 		l = dualSelectionSort(l);
 		
 		System.out.println(l);
