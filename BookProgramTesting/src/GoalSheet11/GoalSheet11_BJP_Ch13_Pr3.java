@@ -63,10 +63,10 @@ public class GoalSheet11_BJP_Ch13_Pr3 {
 				Collections.sort(studentList, Collections.reverseOrder(new Pr3_Comp_Percentage()));//Percentage Descending
 				break;
 			case 9:
-				Collections.sort(studentList, new Pr3_Comp_LetterGrade());//Letter Ascending
+				Collections.sort(studentList, Collections.reverseOrder(new Pr3_Comp_LetterGrade()));//Letter Ascending
 				break;
 			case 10:
-				Collections.sort(studentList, Collections.reverseOrder(new Pr3_Comp_LetterGrade()));//Letter Descending
+				Collections.sort(studentList, new Pr3_Comp_LetterGrade());//Letter Descending
 				break;
 			default:
 				System.out.println("Invalid choice");

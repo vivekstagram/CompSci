@@ -21,7 +21,7 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 			theList.add(s);
 		}
 		
-		theList.sort(String.CASE_INSENSITIVE_ORDER);
+		//theList.sort(String.CASE_INSENSITIVE_ORDER);
 		
 		
 		Scanner sc2 = new Scanner(System.in);
@@ -49,9 +49,13 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 			System.out.println("Second word not found");
 		}
 		
-		if(ind2 >= 0 && ind1 >= 0)//Print number of words (exclusive)
+		if (ind1 == ind2)
 		{
-			System.out.println("There are " + (Math.abs(ind2 - ind1) - 1) + " words between " + w1 + " and " + w2);
+			System.out.println("0 words in between");
+		}
+		else if (ind2 >= 0 && ind1 >= 0)//Print number of words (exclusive)
+		{
+			System.out.println("There are " + (Math.abs(ind2 - ind1)) + " words between " + w1 + " and " + w2);
 		}
 		
 		
@@ -62,7 +66,7 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 	
 	public static int binarySearch(List<String> dictionary, String target)
 	{
-		if(dictionary.size() <= 1)
+		if (dictionary.size() <= 1)
 		{
 			if(dictionary.get(0).compareToIgnoreCase(target) == 0)
 				return 0;//Word Found
@@ -72,12 +76,12 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 		
 		int compare = dictionary.get(dictionary.size() / 2).compareToIgnoreCase(target);
 		
-		if(compare < 0)//Target comes after partition
+		if (compare < 0)//Target comes after partition
 		{
 			return (int)Math.ceil((double)dictionary.size() / 2) + binarySearch(dictionary.subList(dictionary.size() / 2 + 1, dictionary.size()), target);
 			//Return number of indexes before partition, recursion with sub list
 		}
-		else if(compare > 0)
+		else if (compare > 0)
 		{
 			return binarySearch(dictionary.subList(0, dictionary.size() / 2), target);
 			//recursion with sub list
