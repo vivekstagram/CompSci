@@ -35,8 +35,8 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 		String w2 = sc2.nextLine();
 		
 		
-		int ind1 = binarySearch(theList, w1);
-		int ind2 = binarySearch(theList, w2);
+		int ind1 = binarySearch(theList, w1, 0, theList.size() -1);
+		int ind2 = binarySearch(theList, w2, 0, theList.size() -1);
 		
 		
 		if (ind1 < 0)//Not found
@@ -55,7 +55,7 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 		}
 		else if (ind2 >= 0 && ind1 >= 0)//Print number of words (exclusive)
 		{
-			System.out.println("There are " + (Math.abs(ind2 - ind1)) + " words between " + w1 + " and " + w2);
+			System.out.println("There are " + (Math.abs(ind2 - ind1) - 1) + " words between " + w1 + " and " + w2);
 		}
 		
 		
@@ -64,9 +64,9 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 	}
 	
 	
-	public static int binarySearch(List<String> dictionary, String target)
+	public static int binarySearch(List<String> dictionary, String target, int from, int to)
 	{
-		if (dictionary.size() <= 1)
+		if ((to - from) <= 1)
 		{
 			if(dictionary.get(0).compareToIgnoreCase(target) == 0)
 				return 0;//Word Found
@@ -74,21 +74,21 @@ public class GoalSheet11_BJP_CH13_Ex4 {
 				throw new IllegalArgumentException("Word Not Found");
 		}
 		
-		int compare = dictionary.get(dictionary.size() / 2).compareToIgnoreCase(target);
+		int compare = dictionary.get((to - from) / 2).compareToIgnoreCase(target);
 		
 		if (compare < 0)//Target comes after partition
 		{
-			return (int)Math.ceil((double)dictionary.size() / 2) + binarySearch(dictionary.subList(dictionary.size() / 2 + 1, dictionary.size()), target);
+			return binarySearch(dictionary, target, ((to - from) / 2) + 1, to);
 			//Return number of indexes before partition, recursion with sub list
 		}
 		else if (compare > 0)
 		{
-			return binarySearch(dictionary.subList(0, dictionary.size() / 2), target);
+			return binarySearch(dictionary, target, from, (to - from) / 2);
 			//recursion with sub list
 		}
 		else
 		{
-			return (int)(dictionary.size() / 2);
+			return (int)((to - from) / 2);
 			//Index of target found
 		}
 	}
