@@ -1,3 +1,5 @@
+//*******************Vivek Patel - Mar 2018 - stringSplitter*****************//
+
 package GoalSheet12;
 
 import java.util.*;
@@ -6,7 +8,7 @@ public class GoalSheet12_StringSplitter {
 
 	public static void main(String[] args)
 	{
-		stringSplitter("DakshaPatel", 4);
+		stringSplitter("ThisIsAString", 4);
 	}
 	
 	public static void stringSplitter(String s, int num)

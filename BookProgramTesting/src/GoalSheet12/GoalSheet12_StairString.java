@@ -1,3 +1,5 @@
+//*******************Vivek Patel - Mar 2018 - stairString*****************//
+
 package GoalSheet12;
 
 public class GoalSheet12_StairString {
@@ -5,7 +7,7 @@ public class GoalSheet12_StairString {
 	
 	public static void main(String args[])
 	{
-		stairString("abcdefghijklmnopqrstuvwxyz", 20);
+		stairString("abcdefghijklmnopqrstuvwxyz", 3);
 	}
 	
 	
