@@ -11,6 +11,9 @@ public class GoalSheet12_StringReverse {
 	
 	public static void printReverse(String s)
 	{
+		if (s.length() == 0)
+			return;
+		
 		char holder[] = s.toCharArray();
 		
 		for (int i = 0; i < holder.length / 2; i++)
