@@ -70,6 +70,61 @@ public class Picture extends SimplePicture
   }
   
   ////////////////////// methods ///////////////////////////////////////
+  public void encode(Picture pic)
+  {
+  	  Pixel[][] messagePixels = pic.getPixels2D();
+  	  Pixel[][] currPixels = this.getPixels2D();
+  	  
+  	  for(int row = 0; row < currPixels.length; row++)
+  	  {
+  		  for(int col = 0; col < currPixels[0].length; col++)
+  		  {
+  			boolean isBlack = messagePixels[row][col].getAverage() > 127.0;
+  			boolean isOdd = currPixels[row][col].getRed() % 2 == 1;
+  			if(isBlack)
+  			{
+  				if(!isOdd)
+  				{
+  					currPixels[row][col].setRed(currPixels[row][col].getRed() + 1);
+  				}
+  			}
+  			else
+  			{
+  				if(isOdd)
+  				{
+  					currPixels[row][col].setRed(currPixels[row][col].getRed() - 1);
+  				}
+  			}
+  		  }
+  	  }
+  } 
+  
+  
+  
+  public Picture decode()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Picture messagePicture = new Picture(height, width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  
+	  for(int row = 0; row < height; row++)
+	  {
+		  for(int col = 0; col < width; col++)
+		  {
+			  if(pixels[row][col].getRed() % 2 == 1)
+			  {
+				  messagePixels[row][col].setColor(new Color(255, 255, 255));
+			  }
+			  else
+			  {
+				  messagePixels[row][col].setColor(new Color(0, 0, 0));
+			  }
+		  }
+	  }
+	  return messagePicture;
+  }
   
   /**
    * Method to return a string with information about this picture.

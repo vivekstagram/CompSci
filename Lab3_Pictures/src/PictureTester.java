@@ -41,6 +41,16 @@ public class PictureTester
 	  beach.explore();
   }
   
+  public static void testSteg()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Picture msg = new Picture("msg.jpg");
+	  beach.encode(msg);
+	  beach.explore();
+	  Picture m = beach.decode();
+	  m.explore();
+  }
+  
   public static void testFixUnderwater()
   {
 	  Picture water = new Picture("water.jpg");
@@ -225,7 +235,7 @@ public class PictureTester
     //testMirrorDiagonal(true);
     //testCollage();
     //testCopy();
-    testEdgeDetection();
+    //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
@@ -233,5 +243,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+	testSteg();
   }
 }
