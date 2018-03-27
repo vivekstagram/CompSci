@@ -51,6 +51,15 @@ public class PictureTester
 	  m.explore();
   }
   
+  public static void testChromakey()
+  {
+      Picture mark = new Picture("blue-mark.jpg");
+      mark.explore();
+      Picture moon = new Picture("moon-surface.jpg");
+      mark.chromakey(moon);
+      mark.explore();
+  }
+  
   public static void testFixUnderwater()
   {
 	  Picture water = new Picture("water.jpg");
@@ -243,6 +252,7 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-	testSteg();
+	//testSteg();
+	  testChromakey();
   }
 }

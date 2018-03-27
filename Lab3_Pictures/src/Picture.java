@@ -126,6 +126,26 @@ public class Picture extends SimplePicture
 	  return messagePicture;
   }
   
+  public void chromakey(Picture newBack)
+  {
+     Pixel fromPixel = null;
+     Pixel toPixel = null;
+     Pixel[][] toPixels = this.getPixels2D();
+     Pixel[][] fromPixels = newBack.getPixels2D();
+
+     /** your code here */
+     for (int row  = 0; row < toPixels.length; row++)
+     {
+    	for (int column = 0; column < toPixels[0].length; column++)
+    	{
+    		if (toPixels[row][column].getBlue() > toPixels[row][column].getRed())
+    		{
+    			toPixels[row][column].setColor(fromPixels[row][column].getColor());
+    		}
+    	}
+     }
+  }
+  
   /**
    * Method to return a string with information about this picture.
    * @return a string with information about the picture such as fileName,
