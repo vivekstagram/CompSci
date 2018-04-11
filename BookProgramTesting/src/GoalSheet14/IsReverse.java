@@ -2,7 +2,11 @@ package GoalSheet14;
 
 public class IsReverse {
 
-	
+	public static void main(String args[])
+	{
+		//should print out true
+		System.out.println(isReverse("Vivek", "Keviv"));
+	}
 	
 	public static boolean isReverse(String s1, String s2)
 	{
