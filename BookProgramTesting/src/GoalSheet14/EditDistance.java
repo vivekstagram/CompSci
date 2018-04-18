@@ -1,92 +1,89 @@
 package GoalSheet14;
 
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class EditDistance {
-
-	public static void main(String args[])
-		throws FileNotFoundException
-	{
-		Map<String, ArrayList<String>> wordMap = new HashMap<String, ArrayList<String>>();
 	
-		Scanner sc = new Scanner(new File("src/GoalSheet11/dictionary.txt"));
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner console = new Scanner(System.in);
+		System.out.println("Words must be same length");
+		System.out.print("First word: \n>");
+		String word1 = console.next();
+		System.out.print("\nSecond word: \n>");
+		String word2 = console.next();
+		console.close();
 		
-		while (sc.hasNextLine())
-		{
-			wordMap.put(sc.nextLine(), new ArrayList<String>());
-		}
-		
-		int count = 1;
-		
-		for (String s : wordMap.keySet())
-		{
-			System.out.println(count++ + ": Finding edit-distance of 1 neighbors for " + s);
+		if(word1.length() == word2.length()) {
+			System.out.printf("\nLoading...\n");
 			
-			for (int i = 0; i < wordMap.keySet().size(); i++)
-			{
-				if (isEditDistanceOne(s, (String)wordMap.keySet().toArray()[i]))
-				{
-					wordMap.get(s).add((String)wordMap.keySet().toArray()[i]);
+			long init = System.currentTimeMillis();
+			
+			Map<String, Set<String>> map = getWordsInMap("src/GoalSheet11/wordsSorted.txt", word1.length());
+			
+			System.out.println("Map loaded in " + (System.currentTimeMillis() - init) + " ms");
+			System.out.println("Edit distance: " + findEditDistance(word1, word2, map));
+		}
+		else {
+			System.out.println("Error: Words aren't same length.");
+		}
+	}
+
+	public static Map<String, Set<String>> getWordsInMap(String file, int len) throws FileNotFoundException {
+		HashMap<String, Set<String>> m = new HashMap<String, Set<String>>();
+		Scanner _file = new Scanner(new File(file));
+		Set<String> words = new HashSet<String>();
+		while (_file.hasNextLine())
+		{
+			String s = _file.nextLine().toLowerCase();
+			if (s.length() == len)
+				words.add(s);
+		}
+		for (String s : words) {
+			Set<String> toAdd = new HashSet<String>();
+			
+			for (int i = 0; i < s.length(); i++) {
+				for (char c = 'a'; c <= 'z'; c++) {
+					String holder = "";
+					
+					for (int g = 0; g < s.length(); g++) 
+					{
+						if (g != i)
+							holder += s.charAt(g);
+						else
+							holder += c;
+					}
+					
+					if (words.contains(holder))
+						toAdd.add(holder);		
 				}
 			}
+			m.put(s, toAdd);
 		}
 		
-	
+		
+		_file.close();
+		return m;
 	}
 	
-	public static boolean isEditDistanceOne(String s1, String s2) {
-		// Find lengths of given strings
-		int m = s1.length(), n = s2.length();
-
-		// If difference between lengths is
-		// more than 1, then strings can't
-		// be at one distance
-		if (Math.abs(m - n) > 1)
-			return false;
-
-		int count = 0; // Count of edits
-
-		int i = 0, j = 0;
-		while (i < m && j < n) {
-			// If current characters don't match
-			if (s1.charAt(i) != s2.charAt(j)) {
-				if (count == 1)
-					return false;
-
-				// If length of one string is
-				// more, then only possible edit
-				// is to remove a character
-				if (m > n)
-					i++;
-				else if (m < n)
-					j++;
-				else // Iflengths of both strings
-				// is same
-				{
-					i++;
-					j++;
+	public static int findEditDistance(String word, String target, Map<String, Set<String>> map) {
+		LinkedList<String> thisList = new LinkedList<String>();
+		thisList.add(word);
+		for(int i = 0; i <= 100; i++) {
+			for(String s : thisList) {
+				if(s.equals(target)) {
+					return i;
 				}
-
-				// Increment count of edits
-				count++;
 			}
-
-			else // If current characters match
-			{
-				i++;
-				j++;
+			LinkedList<String> newList = new LinkedList<String>();
+			for(String s : thisList) {
+				newList.addAll(map.get(s));
 			}
+			thisList.clear();
+			thisList.addAll(newList);
+			
 		}
-
-		// If last character is extra
-		// in any string
-		if (i < m || j < n)
-			count++;
-
-		return count == 1;
+		return -1;
+		
 	}
-
-	
-	
 }
