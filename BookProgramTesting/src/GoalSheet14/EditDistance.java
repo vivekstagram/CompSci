@@ -21,11 +21,11 @@ public class EditDistance {
 			
 			Map<String, Set<String>> map = getWordsInMap("src/GoalSheet11/wordsSorted.txt", word1.length());
 			
-			System.out.println("Map loaded in " + (System.currentTimeMillis() - init) + " ms");
+			System.out.println("Map loaded in " + (System.currentTimeMillis() - init) + " ms fool");
 			System.out.println("Edit distance: " + findEditDistance(word1, word2, map));
 		}
 		else {
-			System.out.println("Error: Words aren't same length.");
+			System.out.println("Why you put in words that aren't the same length dawg????");
 		}
 	}
 
@@ -43,6 +43,7 @@ public class EditDistance {
 			Set<String> toAdd = new HashSet<String>();
 			
 			for (int i = 0; i < s.length(); i++) {
+				//Thanks to JFrank for helping me with this
 				for (char c = 'a'; c <= 'z'; c++) {
 					String holder = "";
 					
@@ -69,6 +70,8 @@ public class EditDistance {
 	public static int findEditDistance(String word, String target, Map<String, Set<String>> map) {
 		LinkedList<String> thisList = new LinkedList<String>();
 		thisList.add(word);
+		
+		//Lol LinkedList
 		for(int i = 0; i <= 100; i++) {
 			for(String s : thisList) {
 				if(s.equals(target)) {

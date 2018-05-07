@@ -44,6 +44,7 @@ public class PictureTester
   public static void testSteg()
   {
 	  Picture beach = new Picture("beach.jpg");
+	  beach.explore();
 	  Picture msg = new Picture("msg.jpg");
 	  beach.encode(msg);
 	  beach.explore();
@@ -226,7 +227,7 @@ public class PictureTester
     * method in Java */
   public static void main(String[] args)
   {
-    // uncomment a call here to run a test
+    // uncomment a call here to rund a test
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
@@ -252,7 +253,7 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-	//testSteg();
-	  testChromakey();
+	  testSteg();
+	  //testChromakey();
   }
 }

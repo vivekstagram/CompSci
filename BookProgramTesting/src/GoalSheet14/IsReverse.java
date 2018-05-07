@@ -4,12 +4,21 @@ public class IsReverse {
 
 	public static void main(String args[])
 	{
-		//should print out true
-		System.out.println(isReverse("stack", "KcAtS"));
+		
+		System.out.println(isReverse("stack", "KcAtS")); //true
+		System.out.println(isReverse("vivek", "qeviv")); //false
+		System.out.println(isReverse("racecar", "RaCeCaR")); //true
+		System.out.println(isReverse("hello", "hello")); //false
+		System.out.println(isReverse("", "")); //true
+		System.out.println(isReverse("", "KcAtS")); //false
+		
 	}
 	
 	public static boolean isReverse(String s1, String s2)
 	{
+		if (s1.length() == 0 && s2.length() == 0)
+			return true;
+		
 		if (s1.length() != s2.length())
 			return false;
 		

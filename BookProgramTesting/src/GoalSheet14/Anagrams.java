@@ -17,20 +17,17 @@ public class Anagrams {
 	public static void main(String[] args)
 		throws FileNotFoundException
 	{
-		Scanner s = new Scanner(new File("src/GoalSheet11/words.txt"));
+		Scanner s = new Scanner(new File("src/GoalSheet11/wordsSorted.txt"));
 
         ArrayList<String> words = new ArrayList<String>();
         while (s.hasNext()) {
             words.add(s.next());
         }
-
-        
-        //words.sort(new CanonicalComparator());
         
         HashMap<String, ArrayList<String>> map = new HashMap<>();
 
         for (String str : words) {
-            char[] temp = str.toCharArray();
+            char[] temp = str.toLowerCase().toCharArray();
             Arrays.sort(temp);
             String key = new String(temp).toLowerCase();
             if (map.get(key) != null) {
